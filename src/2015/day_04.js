@@ -1,15 +1,15 @@
+import md5 from "js-md5";
+
 function fifteenFour(input) {
-  let part1 = 0;
-  let part2 = null;
+  function getSuffix(hash, zeroes) {
+    let suffix = 1;
+    for (;;) {
+      if (md5(hash + suffix).startsWith("".padStart(zeroes, "0"))) return suffix;
+      suffix += 1;
+    }
+  }
 
-  input.split("").forEach((char, index) => {
-    if (char === "(") part1 += 1;
-    else if (char === ")") part1 -= 1;
-
-    if (part1 === -1 && part2 === null) part2 = index + 1;
-  });
-
-  return [0, 0];
+  return [getSuffix(input, 5), getSuffix(input, 6)];
 }
 
 export default fifteenFour;

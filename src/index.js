@@ -2,6 +2,7 @@ import fifteenOne from "./2015/day_01";
 import fifteenTwo from "./2015/day_02";
 import fifteenThree from "./2015/day_03";
 import fifteenFour from "./2015/day_04";
+import fifteenFive from "./2015/day_05";
 import fifteenTen from "./2015/day_10";
 
 const solutions = {
@@ -10,6 +11,7 @@ const solutions = {
     2: fifteenTwo,
     3: fifteenThree,
     4: fifteenFour,
+    5: fifteenFive,
     10: fifteenTen,
   },
 };
