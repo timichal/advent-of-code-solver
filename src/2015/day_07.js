@@ -37,7 +37,6 @@ function fifteenSeven(input) {
   instructions.b = part1;
   const part2 = getInstructionValue(Object.assign({}, instructions), "a");
   return [part1, part2];
-
 }
 
 export default fifteenSeven;
