@@ -23,8 +23,8 @@ function fifteenSix(input) {
     });
   let partOne = 0;
   let partTwo = 0;
-  matrixOne.forEach(row => row.forEach(light => partOne += light));
-  matrixTwo.forEach(row => row.forEach(light => partTwo += light));
+  matrixOne.forEach(row => row.forEach((light) => { partOne += light; }));
+  matrixTwo.forEach(row => row.forEach((light) => { partTwo += light; }));
   return [partOne, partTwo];
 }
 

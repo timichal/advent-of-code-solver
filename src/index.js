@@ -10,6 +10,8 @@ import fifteenNine from "./2015/day_09";
 import fifteenTen from "./2015/day_10";
 import fifteenEleven from "./2015/day_11";
 import fifteenTwelve from "./2015/day_12";
+import fifteenThirteen from "./2015/day_13";
+
 
 const solutions = {
   2015: {
@@ -25,6 +27,7 @@ const solutions = {
     10: fifteenTen,
     11: fifteenEleven,
     12: fifteenTwelve,
+    13: fifteenThirteen,
   },
 };
 

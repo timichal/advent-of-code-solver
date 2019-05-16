@@ -11,10 +11,15 @@
 	text-align: center;
 }
 
-#answer {
+#answer-box {
 	display: flex;
 	align-items: center;
 	padding: .5rem 1rem;
+	height: 4rem;
+}
+
+#answer {
+	margin-left: 1rem;
 }
 
 .bold {

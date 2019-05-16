@@ -1,5 +1,5 @@
 function fifteenSeven(input) {
-  const instructions = input
+  const processedInput = input
     .split("\n")
     .filter(line => line)
     .map(instruction => instruction
@@ -22,7 +22,8 @@ function fifteenSeven(input) {
           if (instructions[instruction].match(/^\d+$/)) {
             Object.keys(instructions).forEach((replaceInstruction) => {
               const entryRegex = new RegExp(`\\b${instruction}\\b`, "g");
-              instructions[replaceInstruction] = instructions[replaceInstruction].replace(entryRegex, instructions[instruction]);
+              instructions[replaceInstruction] = instructions[replaceInstruction]
+                .replace(entryRegex, instructions[instruction]);
             });
 
             if (instruction !== wantedInstruction) delete instructions[instruction];
@@ -33,9 +34,9 @@ function fifteenSeven(input) {
     return instructions[wantedInstruction];
   }
 
-  const part1 = getInstructionValue(Object.assign({}, instructions), "a");
-  instructions.b = part1;
-  const part2 = getInstructionValue(Object.assign({}, instructions), "a");
+  const part1 = getInstructionValue(Object.assign({}, processedInput), "a");
+  processedInput.b = part1;
+  const part2 = getInstructionValue(Object.assign({}, processedInput), "a");
   return [part1, part2];
 }
 
