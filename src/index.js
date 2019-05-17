@@ -15,6 +15,7 @@ import fifteenFourteen from "./2015/day_14";
 import fifteenFifteen from "./2015/day_15";
 import fifteenSixteen from "./2015/day_16";
 import fifteenSeventeen from "./2015/day_17";
+import fifteenEighteen from "./2015/day_18";
 
 
 const solutions = {
@@ -36,6 +37,7 @@ const solutions = {
     15: fifteenFifteen,
     16: fifteenSixteen,
     17: fifteenSeventeen,
+    18: fifteenEighteen,
   },
 };
 
