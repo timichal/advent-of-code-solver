@@ -11,6 +11,8 @@ import fifteenTen from "./2015/day_10";
 import fifteenEleven from "./2015/day_11";
 import fifteenTwelve from "./2015/day_12";
 import fifteenThirteen from "./2015/day_13";
+import fifteenFourteen from "./2015/day_14";
+import fifteenFifteen from "./2015/day_15";
 
 
 const solutions = {
@@ -28,6 +30,8 @@ const solutions = {
     11: fifteenEleven,
     12: fifteenTwelve,
     13: fifteenThirteen,
+    14: fifteenFourteen,
+    15: fifteenFifteen,
   },
 };
 

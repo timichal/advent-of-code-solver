@@ -1,34 +1,6 @@
 import Combinatorics from "js-combinatorics";
 
 function fifteenThirteen(input) {
-  function computeHappiness(instructions) {
-    const guests = [...new Set(instructions.map(el => el[0]))];
-    const guestPermutations = Combinatorics.permutation(guests);
-
-    let maxHappiness = 0;
-    guestPermutations.forEach((permutation) => {
-      let happiness = 0;
-      permutation.forEach((guest, index) => {
-        // guests sit around a table - for ABCD, need to sum a+b b+c c+d d+a
-        // but also a+d d+c c+b b+a - the relations are bidirectional
-        instructions
-          .filter(el => (
-            (el[0] === guest && el[1] === permutation[(index + 1) % permutation.length]))
-            || (el[1] === guest && el[0] === permutation[(index + 1) % permutation.length]))
-          .forEach((el) => { happiness += el[2]; });
-      });
-      maxHappiness = Math.max(maxHappiness, happiness);
-    });
-
-    return maxHappiness;
-  }
-
-  function addYourselfTo(instructions) {
-    const guests = [...new Set(instructions.map(el => el[0]))];
-    guests.forEach((guest) => { instructions.push([guest, "X", 0], ["X", guest, 0]); });
-    return instructions;
-  }
-
   const instructions = input
     .split("\n")
     .filter(line => line)
@@ -40,6 +12,34 @@ function fifteenThirteen(input) {
         splitEl[2] === "gain" ? Number(el.split(" ")[3]) : -Number(el.split(" ")[3]),
       ];
     });
+
+  function computeHappiness(guestList) {
+    const guests = [...new Set(guestList.map(el => el[0]))];
+    const guestPermutations = Combinatorics.permutation(guests);
+
+    let maxHappiness = 0;
+    guestPermutations.forEach((permutation) => {
+      let happiness = 0;
+      permutation.forEach((guest, index) => {
+        // guests sit around a table - for ABCD, need to sum a+b b+c c+d d+a
+        // but also a+d d+c c+b b+a - the relations are bidirectional
+        guestList
+          .filter(el => (
+            (el[0] === guest && el[1] === permutation[(index + 1) % permutation.length]))
+            || (el[1] === guest && el[0] === permutation[(index + 1) % permutation.length]))
+          .forEach((el) => { happiness += el[2]; });
+      });
+      maxHappiness = Math.max(maxHappiness, happiness);
+    });
+
+    return maxHappiness;
+  }
+
+  function addYourselfTo(guestList) {
+    const guests = [...new Set(guestList.map(el => el[0]))];
+    guests.forEach((guest) => { guestList.push([guest, "X", 0], ["X", guest, 0]); });
+    return guestList;
+  }
 
   const part1 = computeHappiness(instructions);
   const part2 = computeHappiness(addYourselfTo(instructions));

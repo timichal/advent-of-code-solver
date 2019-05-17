@@ -4,7 +4,7 @@ function fifteenThree(input) {
     let locY = 0;
     const visitedLocs = [[0, 0]];
 
-    directions.split("").forEach((char) => {
+    [...directions].forEach((char) => {
       if (char === "^") locX += 1;
       else if (char === "v") locX -= 1;
       else if (char === ">") locY += 1;

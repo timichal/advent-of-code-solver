@@ -2,7 +2,7 @@ function fifteenOne(input) {
   let part1 = 0;
   let part2 = null;
 
-  input.split("").forEach((char, index) => {
+  [...input].forEach((char, index) => {
     if (char === "(") part1 += 1;
     else if (char === ")") part1 -= 1;
 

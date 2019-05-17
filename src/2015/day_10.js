@@ -22,13 +22,13 @@ function fifteenTen(input) {
     return newString;
   }
 
-  for (let i = 0; i < 40; i += 1) {
+  for (let i = 0; i < 40; i++) {
     part1 = lookAndSay(part1);
   }
 
   let part2 = part1;
 
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < 10; i++) {
     part2 = lookAndSay(part2);
   }
 
