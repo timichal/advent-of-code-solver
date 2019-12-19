@@ -1,7 +1,7 @@
-function fifteenSixteen(input) {
+export const fifteenSixteen = (input) => {
   const instructions = input
     .split("\n")
-    .filter(line => line)
+    .filter((line) => line)
     .map((el) => {
       const splitEl = el.split(/[ ,:]/);
       return {
@@ -13,7 +13,7 @@ function fifteenSixteen(input) {
     });
 
   const part1 = instructions
-    .filter(aunt => (
+    .filter((aunt) => (
       (aunt.children === undefined || aunt.children === 3)
       && (aunt.cats === undefined || aunt.cats === 7)
       && (aunt.samoyeds === undefined || aunt.samoyeds === 2)
@@ -27,7 +27,7 @@ function fifteenSixteen(input) {
     ))[0].id;
 
   const part2 = instructions
-    .filter(aunt => (
+    .filter((aunt) => (
       (aunt.children === undefined || aunt.children === 3)
       && (aunt.cats === undefined || aunt.cats > 7)
       && (aunt.samoyeds === undefined || aunt.samoyeds === 2)
@@ -41,6 +41,6 @@ function fifteenSixteen(input) {
     ))[0].id;
 
   return [part1, part2];
-}
+};
 
 export default fifteenSixteen;

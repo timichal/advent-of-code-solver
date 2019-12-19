@@ -1,5 +1,5 @@
-function fifteenFive(input) {
-  function isStringNicePartOne(string) {
+export const fifteenFive = (input) => {
+  const isStringNicePartOne = (string) => {
     // All of:
     // It contains at least three vowels (aeiou only), like aei, xazegov, or aeiouaeiouaeiou.
     const containsThreeVowels = string.match(/([aeiou])/g) ? string.match(/([aeiou])/g).length >= 3 : false;
@@ -11,9 +11,9 @@ function fifteenFive(input) {
     const containsNoForbiddenStrings = !string.match(/ab|cd|pq|xy/g);
 
     return containsThreeVowels && containsLetterTwice && containsNoForbiddenStrings;
-  }
+  };
 
-  function isStringNicePartTwo(string) {
+  const isStringNicePartTwo = (string) => {
     // All of:
     // It contains a pair of any two letters that appears at least twice in the string without overlapping, like xyxy (xy) or aabcdefgaa (aa), but not like aaa (aa, but it overlaps).
     const containsPairTwice = string.match(/([a-z][a-z]).*\1/g);
@@ -22,7 +22,7 @@ function fifteenFive(input) {
     const containsRepeatingLetter = string.match(/([a-z]).\1/g);
 
     return containsPairTwice && containsRepeatingLetter && true;
-  }
+  };
 
   const partOne = input
     .split("\n")
@@ -33,6 +33,6 @@ function fifteenFive(input) {
     .reduce((acc, string) => acc + isStringNicePartTwo(string), 0);
 
   return [partOne, partTwo];
-}
+};
 
 export default fifteenFive;

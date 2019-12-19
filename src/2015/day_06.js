@@ -1,11 +1,11 @@
-function fifteenSix(input) {
+export const fifteenSix = (input) => {
   const matrixOne = new Array(1000).fill(0).map(() => new Array(1000).fill(0));
   const matrixTwo = new Array(1000).fill(0).map(() => new Array(1000).fill(0));
   input
     .split("\n")
-    .filter(line => line)
+    .filter((line) => line)
     .forEach((instruction) => {
-      const [xStart, yStart, xEnd, yEnd] = instruction.match(/\d+/g).map(number => parseInt(number, 10));
+      const [xStart, yStart, xEnd, yEnd] = instruction.match(/\d+/g).map((number) => parseInt(number, 10));
       for (let x = xStart; x <= xEnd; x++) {
         for (let y = yStart; y <= yEnd; y++) {
           if (instruction.startsWith("turn on")) {
@@ -23,8 +23,8 @@ function fifteenSix(input) {
     });
   let partOne = 0;
   let partTwo = 0;
-  matrixOne.forEach(row => row.forEach((light) => { partOne += light; }));
-  matrixTwo.forEach(row => row.forEach((light) => { partTwo += light; }));
+  matrixOne.forEach((row) => row.forEach((light) => { partOne += light; }));
+  matrixTwo.forEach((row) => row.forEach((light) => { partTwo += light; }));
   return [partOne, partTwo];
 }
 

@@ -9,19 +9,21 @@
 </head>
 <body class="container">
 	<div class="row">
-		<div class="col">
-			<h1 id="heading">Advent of Code Solver</h1>
+		<div class="col heading">
+			<h1>Advent of Code Solver</h1>
+			<h5>Selected puzzle: <span id="puzzle-info">None</span></h5>
 		</div>
 	</div>
 	<div class="row">
 			<div class="col-12 col-md-8">
-				<textarea id="input"></textarea>
+				<textarea class="input" id="input" placeholder="Paste your puzzle input here..."></textarea>
 			</div>
 			<div class="col-6 col-md-2">
 				<input type="radio" name="year" value="2015" checked> 2015<br>
 				<input type="radio" name="year" value="2016" disabled> 2016<br>
 				<input type="radio" name="year" value="2017" disabled> 2017<br>
 				<input type="radio" name="year" value="2018" disabled> 2018<br>
+				<input type="radio" name="year" value="2018" disabled> 2019<br>
 			</div>
 			<div class="col-3 col-md-1">
 				<input type="radio" name="day" value="01" checked> 01<br>
@@ -54,12 +56,12 @@
 			</div>
 	</div>
 	<div class="row" style="vertical-align: middle;">
-			<div class="col-12 col-md-8" id="buttondiv">
+			<div class="col-12 col-md-8 buttondiv">
 				<button type="button" id="submit" class="btn btn-primary btn-lg">Submit</button>
 			</div>
-			<div class="col-12 col-md-4" id="answer-box">
+			<div class="col-12 col-md-4 answer-box">
 					<h4>Answer</h4>
-					<div id="answer">Part 1:<br> Part 2:</div>
+					<div class="answer" id="answer">Part 1:<br> Part 2:</div>
 			</div>
 	</div>
 	<script src="index.js"></script>

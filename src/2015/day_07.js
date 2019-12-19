@@ -1,8 +1,8 @@
-function fifteenSeven(input) {
+export const fifteenSeven = (input) => {
   const processedInput = input
     .split("\n")
-    .filter(line => line)
-    .map(instruction => instruction
+    .filter((line) => line)
+    .map((instruction) => instruction
       .replace("AND", "&")
       .replace("OR", "|")
       .replace("NOT", "65535 -")
@@ -11,7 +11,7 @@ function fifteenSeven(input) {
       .split(" -> "))
     .reduce((acc, val) => Object.assign(acc, { [val[1]]: val[0] }), {});
 
-  function getInstructionValue(instructions, wantedInstruction) {
+  const getInstructionValue = (instructions, wantedInstruction) => {
     while (!instructions[wantedInstruction].match(/^\d+$/)) {
       for (let i = 0; i <= Object.keys(instructions).length; i++) {
         Object.keys(instructions).forEach((instruction) => {
@@ -32,12 +32,12 @@ function fifteenSeven(input) {
       }
     }
     return instructions[wantedInstruction];
-  }
+  };
 
-  const part1 = getInstructionValue(Object.assign({}, processedInput), "a");
+  const part1 = getInstructionValue({ ...processedInput }, "a");
   processedInput.b = part1;
-  const part2 = getInstructionValue(Object.assign({}, processedInput), "a");
+  const part2 = getInstructionValue({ ...processedInput }, "a");
   return [part1, part2];
-}
+};
 
 export default fifteenSeven;

@@ -1,5 +1,5 @@
-function fifteenThree(input) {
-  function part1(directions) {
+export const fifteenThree = (input) => {
+  const part1 = (directions) => {
     let locX = 0;
     let locY = 0;
     const visitedLocs = [[0, 0]];
@@ -14,9 +14,9 @@ function fifteenThree(input) {
     });
 
     return new Set(visitedLocs.map(JSON.stringify)).size;
-  }
+  };
 
-  function part2(directions) {
+  const part2 = (directions) => {
     let locX = 0;
     let locY = 0;
     let roboLocX = 0;
@@ -33,8 +33,8 @@ function fifteenThree(input) {
       roboTurn = !roboTurn;
     });
     return new Set(visitedLocs.map(JSON.stringify)).size;
-  }
+  };
   return [part1(input), part2(input)];
-}
+};
 
 export default fifteenThree;

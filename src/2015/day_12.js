@@ -1,5 +1,5 @@
-function fifteenTwelve(input) {
-  function countArr(arr) {
+export const fifteenTwelve = (input) => {
+  const countArr = (arr) => {
     let count = 0;
 
     // if an actual object and contains "red", discount it (count as 0)
@@ -15,7 +15,7 @@ function fifteenTwelve(input) {
     });
 
     return count;
-  }
+  };
 
 
   const part1 = input
@@ -26,6 +26,6 @@ function fifteenTwelve(input) {
   const part2 = countArr(JSON.parse(input));
 
   return [part1, part2];
-}
+};
 
 export default fifteenTwelve;

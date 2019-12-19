@@ -1,15 +1,15 @@
-function fifteenEighteen(input) {
+export const fifteenEighteen = (input) => {
   const instructions = input
     .split("\n")
-    .filter(line => line)
-    .map(line => [...line]);
+    .filter((line) => line)
+    .map((line) => [...line]);
 
   /*
     A light which is on stays on when 2 or 3 neighbors are on, and turns off otherwise.
     A light which is off turns on if exactly 3 neighbors are on, and stays off otherwise.
   */
 
-  function litNeighbors(grid, x, y) {
+  const litNeighbors = (grid, x, y) => {
     let lit = 0;
     if (grid[x - 1]) {
       if (grid[x - 1][y - 1] === "#") lit += 1;
@@ -27,9 +27,9 @@ function fifteenEighteen(input) {
     }
 
     return lit;
-  }
+  };
 
-  function gridStep(grid, cornerLightStuck) {
+  const gridStep = (grid, cornerLightStuck) => {
     const oldGrid = grid;
     return grid.map((row, rowNo) => row.map((light, colNo) => {
       if (cornerLightStuck) {

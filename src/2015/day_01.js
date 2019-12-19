@@ -1,4 +1,4 @@
-function fifteenOne(input) {
+export const fifteenOne = (input) => {
   let part1 = 0;
   let part2 = null;
 
@@ -10,6 +10,6 @@ function fifteenOne(input) {
   });
 
   return [part1, part2];
-}
+};
 
 export default fifteenOne;

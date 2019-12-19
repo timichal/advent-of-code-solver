@@ -1,10 +1,10 @@
-function fifteenEight(input) {
+export const fifteenEight = (input) => {
   let dataChars = 0;
   let contentChars = 0;
   let escapedChars = 0;
   input
     .split("\n")
-    .filter(line => line)
+    .filter((line) => line)
     .forEach((instruction) => {
       dataChars += instruction.length;
       contentChars += instruction.substring(1, instruction.length - 1)
@@ -17,6 +17,6 @@ function fifteenEight(input) {
   const part1 = dataChars - contentChars;
   const part2 = escapedChars - dataChars;
   return [part1, part2];
-}
+};
 
 export default fifteenEight;

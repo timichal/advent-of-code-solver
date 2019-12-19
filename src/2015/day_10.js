@@ -1,7 +1,7 @@
-function fifteenTen(input) {
+export const fifteenTen = (input) => {
   let part1 = input;
 
-  function lookAndSay(string) {
+  const lookAndSay = (string) => {
     let newString = "";
     let prevChar = "";
     let count = 0;
@@ -20,7 +20,7 @@ function fifteenTen(input) {
     newString += count + prevChar;
 
     return newString;
-  }
+  };
 
   for (let i = 0; i < 40; i++) {
     part1 = lookAndSay(part1);
@@ -33,6 +33,6 @@ function fifteenTen(input) {
   }
 
   return [part1.length, part2.length];
-}
+};
 
 export default fifteenTen;

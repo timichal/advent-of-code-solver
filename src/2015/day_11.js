@@ -1,20 +1,22 @@
-function fifteenEleven(input) {
+export const fifteenEleven = (input) => {
   const originalPassword = input.trim();
 
-  function nextChar(str) {
+  const nextChar = (str) => {
     let depth = 1;
     while (str[str.length - depth] === "z") depth += 1;
 
     return str.substring(0, str.length - depth) + String.fromCharCode(str.charCodeAt(str.length - depth) + 1) + "a".repeat(depth - 1);
-  }
+  };
 
-  function passwordRequirements(string) {
+  const passwordRequirements = (string) => {
     // All of:
     // Passwords must include one increasing straight of at least three letters, like abc, bcd, cde, and so on, up to xyz. They cannot skip letters; abd doesn't count.
     const containsIncreasing = () => {
       for (let charCode = 97; charCode <= 120; charCode += 1) {
         if (string.includes(
-          String.fromCharCode(charCode) + String.fromCharCode(charCode + 1) + String.fromCharCode(charCode + 2),
+          String.fromCharCode(charCode)
+          + String.fromCharCode(charCode + 1)
+          + String.fromCharCode(charCode + 2),
         )) return true;
       }
       return false;
@@ -27,7 +29,7 @@ function fifteenEleven(input) {
     const containsTwoDifferentPairs = new Set(string.match(/([a-z])\1/g)).size >= 2;
 
     return containsIncreasing() && containsNoForbiddenLetters && containsTwoDifferentPairs;
-  }
+  };
 
   function getNextPassword(password) {
     password = nextChar(password);
@@ -38,6 +40,6 @@ function fifteenEleven(input) {
   const partOne = getNextPassword(originalPassword);
   const partTwo = getNextPassword(partOne);
   return [partOne, partTwo];
-}
+};
 
 export default fifteenEleven;

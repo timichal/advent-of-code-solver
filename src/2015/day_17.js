@@ -1,9 +1,9 @@
 import Combinatorics from "js-combinatorics";
 
-function fifteenSeventeen(input) {
+export const fifteenSeventeen = (input) => {
   const instructions = input
     .split("\n")
-    .filter(line => line)
+    .filter((line) => line)
     .map(Number);
 
   let part1 = 0;
@@ -21,6 +21,6 @@ function fifteenSeventeen(input) {
   });
 
   return [part1, part2];
-}
+};
 
 export default fifteenSeventeen;

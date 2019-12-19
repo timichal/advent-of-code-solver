@@ -1,7 +1,7 @@
-function fifteenFourteen(input) {
+export const fifteenFourteen = (input) => {
   const instructions = input
     .split("\n")
-    .filter(line => line)
+    .filter((line) => line)
     .map((el) => {
       const splitEl = el.split(" ");
       return {
@@ -15,7 +15,7 @@ function fifteenFourteen(input) {
       };
     });
 
-  function moveReindeer(reindeer, seconds) {
+  const moveReindeer = (reindeer, seconds) => {
     for (let i = 0; i < seconds; i++) {
       reindeer.forEach((deer) => {
         deer.cyclePosition += 1;
@@ -32,20 +32,19 @@ function fifteenFourteen(input) {
       });
 
       // award points to reindeer in the lead
-      const leadingDistance = Math.max(...reindeer.map(deer => deer.distanceTravelled));
+      const leadingDistance = Math.max(...reindeer.map((deer) => deer.distanceTravelled));
       reindeer.forEach((deer) => {
         if (deer.distanceTravelled === leadingDistance) deer.points += 1;
       });
     }
 
     return reindeer;
-  }
+  };
 
-  const part1 = Math.max(...moveReindeer(JSON.parse(JSON.stringify(instructions)), 2503)
-    .map(deer => deer.distanceTravelled));
-  const part2 = Math.max(...moveReindeer(JSON.parse(JSON.stringify(instructions)), 2503)
-    .map(deer => deer.points));
+  const race = moveReindeer(JSON.parse(JSON.stringify(instructions)), 2503);
+  const part1 = Math.max(...race.map((deer) => deer.distanceTravelled));
+  const part2 = Math.max(...race.map((deer) => deer.points));
   return [part1, part2];
-}
+};
 
 export default fifteenFourteen;
