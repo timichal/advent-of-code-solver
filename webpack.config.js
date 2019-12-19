@@ -5,7 +5,6 @@ module.exports = {
     path: __dirname,
     filename: "index.js",
   },
-  watch: true,
 
   node: {
     fs: "empty",
