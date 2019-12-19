@@ -22,15 +22,9 @@ export const fifteenTen = (input) => {
     return newString;
   };
 
-  for (let i = 0; i < 40; i++) {
-    part1 = lookAndSay(part1);
-  }
-
+  for (let i = 0; i < 40; i++) part1 = lookAndSay(part1);
   let part2 = part1;
-
-  for (let i = 0; i < 10; i++) {
-    part2 = lookAndSay(part2);
-  }
+  for (let i = 0; i < 10; i++) part2 = lookAndSay(part2);
 
   return [part1.length, part2.length];
 };
