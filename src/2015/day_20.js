@@ -26,7 +26,7 @@ export const fifteenTwenty = (input) => {
         : getFactors(x).filter((factor) => factor * 50 >= x).reduce((acc, val) => acc + val * 11, 0);
       if (sum >= minPresents) return x;
     }
-  }
+  };
 
   const part1 = getHouseNumber(instructions);
   const part2 = getHouseNumber(instructions, true);

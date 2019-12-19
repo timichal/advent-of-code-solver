@@ -41,7 +41,7 @@ export const fifteenFourteen = (input) => {
     return reindeer;
   };
 
-  const race = moveReindeer(JSON.parse(JSON.stringify(instructions)), 2503);
+  const race = moveReindeer(instructions.map((deer) => ({ ...deer })), 2503);
   const part1 = Math.max(...race.map((deer) => deer.distanceTravelled));
   const part2 = Math.max(...race.map((deer) => deer.points));
   return [part1, part2];
