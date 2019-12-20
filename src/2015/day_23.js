@@ -1,8 +1,5 @@
 export const fifteenTwentyThree = (input) => {
-  const instructions = input
-    .split("\n")
-    .filter((line) => line)
-    .map((line) => line.split(/,? /g));
+  const instructions = input.map((line) => line.split(/,? /g));
 
   const computer = (aValue) => {
     const register = { a: aValue, b: 0 };

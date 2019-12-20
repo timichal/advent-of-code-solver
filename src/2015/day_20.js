@@ -1,5 +1,5 @@
 export const fifteenTwenty = (input) => {
-  const instructions = input.trim();
+  const instructions = input[0];
 
   // blazing fast factor algorithm lifted from https://stackoverflow.com/questions/22130043/trying-to-find-factors-of-a-number-in-js
   const getFactors = (num) => {

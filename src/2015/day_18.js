@@ -1,8 +1,5 @@
 export const fifteenEighteen = (input) => {
-  const instructions = input
-    .split("\n")
-    .filter((line) => line)
-    .map((line) => [...line]);
+  const instructions = input.map((line) => [...line]);
 
   /*
     A light which is on stays on when 2 or 3 neighbors are on, and turns off otherwise.
@@ -47,7 +44,7 @@ export const fifteenEighteen = (input) => {
       if (litNeighbors(oldGrid, rowNo, colNo) === 3) return "#";
       return ".";
     }));
-  }
+  };
 
   let part1Grid = instructions;
   for (let i = 0; i < 100; i++) part1Grid = gridStep(part1Grid);
@@ -58,6 +55,6 @@ export const fifteenEighteen = (input) => {
   const part2 = JSON.stringify(part2Grid).match(/#/g).length;
 
   return [part1, part2];
-}
+};
 
 export default fifteenEighteen;

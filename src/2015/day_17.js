@@ -1,17 +1,14 @@
-import Combinatorics from "js-combinatorics";
+import { power } from "js-combinatorics";
 
 export const fifteenSeventeen = (input) => {
-  const instructions = input
-    .split("\n")
-    .filter((line) => line)
-    .map(Number);
+  const instructions = input.map(Number);
 
   let part1 = 0;
   let minLength = Infinity;
   let part2 = 0;
 
-  Combinatorics.power(instructions).forEach((el) => {
-    if ((el.reduce((sum, acc) => sum + acc, 0)) === 150) {
+  power(instructions).forEach((el) => {
+    if ((el.reduce((acc, val) => acc + val, 0)) === 150) {
       part1 += 1;
       if (el.length < minLength) {
         minLength = el.length;

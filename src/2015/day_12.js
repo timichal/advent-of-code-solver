@@ -18,12 +18,11 @@ export const fifteenTwelve = (input) => {
   };
 
 
-  const part1 = input
-    .trim()
+  const part1 = input[0]
     .match(/-?\d+/g)
     .reduce((acc, val) => acc + Number(val), 0);
 
-  const part2 = countArr(JSON.parse(input));
+  const part2 = countArr(JSON.parse(input[0]));
 
   return [part1, part2];
 };

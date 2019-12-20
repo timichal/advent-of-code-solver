@@ -1,7 +1,5 @@
 export const fifteenTwentyTwo = (input) => {
-  const [bossMaxHp, bossDamage] = input
-    .split("\n")
-    .map((line) => line.split(": ")[1]);
+  const [bossMaxHp, bossDamage] = input.map((line) => line.split(": ")[1]);
 
   const spells = [
     { name: "missile", cost: 53, cooldown: 0 },

@@ -1,19 +1,16 @@
 export const fifteenFourteen = (input) => {
-  const instructions = input
-    .split("\n")
-    .filter((line) => line)
-    .map((el) => {
-      const splitEl = el.split(" ");
-      return {
-        speed: Number(splitEl[3]),
-        flightTime: Number(splitEl[6]),
-        restTime: Number(splitEl[13]),
-        isResting: false,
-        cyclePosition: 0,
-        distanceTravelled: 0,
-        points: 0,
-      };
-    });
+  const instructions = input.map((el) => {
+    const splitEl = el.split(" ");
+    return {
+      speed: Number(splitEl[3]),
+      flightTime: Number(splitEl[6]),
+      restTime: Number(splitEl[13]),
+      isResting: false,
+      cyclePosition: 0,
+      distanceTravelled: 0,
+      points: 0,
+    };
+  });
 
   const moveReindeer = (reindeer, seconds) => {
     for (let i = 0; i < seconds; i++) {

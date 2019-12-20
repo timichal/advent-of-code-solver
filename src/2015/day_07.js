@@ -1,7 +1,5 @@
 export const fifteenSeven = (input) => {
-  const processedInput = input
-    .split("\n")
-    .filter((line) => line)
+  const instructions = input
     .map((instruction) => instruction
       .replace("AND", "&")
       .replace("OR", "|")
@@ -11,32 +9,31 @@ export const fifteenSeven = (input) => {
       .split(" -> "))
     .reduce((acc, val) => Object.assign(acc, { [val[1]]: val[0] }), {});
 
-  const getInstructionValue = (instructions, wantedInstruction) => {
-    while (!instructions[wantedInstruction].match(/^\d+$/)) {
-      for (let i = 0; i <= Object.keys(instructions).length; i++) {
-        Object.keys(instructions).forEach((instruction) => {
-          if (instructions[instruction].match(/65535 - \d+|\d+ ([&|]|<<|>>) \d+/g)) {
-            instructions[instruction] = String(eval(instructions[instruction]));
+  const getInstructionValue = (register, wantedInstruction) => {
+    while (!register[wantedInstruction].match(/^\d+$/)) {
+      Object.keys(register).forEach(() => {
+        Object.keys(register).forEach((instruction) => {
+          if (register[instruction].match(/65535 - \d+|\d+ ([&|]|<<|>>) \d+/g)) {
+            register[instruction] = String(eval(register[instruction]));
           }
 
-          if (instructions[instruction].match(/^\d+$/)) {
-            Object.keys(instructions).forEach((replaceInstruction) => {
+          if (register[instruction].match(/^\d+$/)) {
+            Object.keys(register).forEach((replaceInstruction) => {
               const entryRegex = new RegExp(`\\b${instruction}\\b`, "g");
-              instructions[replaceInstruction] = instructions[replaceInstruction]
-                .replace(entryRegex, instructions[instruction]);
+              register[replaceInstruction] = register[replaceInstruction]
+                .replace(entryRegex, register[instruction]);
             });
 
-            if (instruction !== wantedInstruction) delete instructions[instruction];
+            if (instruction !== wantedInstruction) delete register[instruction];
           }
         });
-      }
+      });
     }
-    return instructions[wantedInstruction];
+    return register[wantedInstruction];
   };
 
-  const part1 = getInstructionValue({ ...processedInput }, "a");
-  processedInput.b = part1;
-  const part2 = getInstructionValue({ ...processedInput }, "a");
+  const part1 = getInstructionValue({ ...instructions }, "a");
+  const part2 = getInstructionValue({ ...instructions, b: part1 }, "a");
   return [part1, part2];
 };
 

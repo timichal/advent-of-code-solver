@@ -1,8 +1,5 @@
 export const fifteenFifteen = (input) => {
-  const instructions = input
-    .split("\n")
-    .filter((line) => line)
-    .map((el) => el.match(/-?\d/g));
+  const instructions = input.map((el) => el.match(/-?\d/g));
 
   const getCombos = (sum, len) => {
     const combos = [];

@@ -1,10 +1,12 @@
 export const fifteenThree = (input) => {
+  const instructions = [...input[0]];
+
   const part1 = (directions) => {
     let locX = 0;
     let locY = 0;
     const visitedLocs = [[0, 0]];
 
-    [...directions].forEach((char) => {
+    directions.forEach((char) => {
       if (char === "^") locX += 1;
       else if (char === "v") locX -= 1;
       else if (char === ">") locY += 1;
@@ -24,7 +26,7 @@ export const fifteenThree = (input) => {
     let roboTurn = false;
     const visitedLocs = [[0, 0]];
 
-    directions.split("").forEach((char) => {
+    directions.forEach((char) => {
       if (char === "^") roboTurn ? roboLocX += 1 : locX += 1;
       else if (char === "v") roboTurn ? roboLocX -= 1 : locX -= 1;
       else if (char === ">") roboTurn ? roboLocY += 1 : locY += 1;
@@ -34,7 +36,7 @@ export const fifteenThree = (input) => {
     });
     return new Set(visitedLocs.map(JSON.stringify)).size;
   };
-  return [part1(input), part2(input)];
+  return [part1(instructions), part2(instructions)];
 };
 
 export default fifteenThree;

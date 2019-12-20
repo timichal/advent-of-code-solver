@@ -21,6 +21,7 @@ import { fifteenTwenty } from "./2015/day_20";
 import { fifteenTwentyOne } from "./2015/day_21";
 import { fifteenTwentyTwo } from "./2015/day_22";
 import { fifteenTwentyThree } from "./2015/day_23";
+import { fifteenTwentyFour } from "./2015/day_24";
 
 export const solutions = {
   2015: {
@@ -47,6 +48,7 @@ export const solutions = {
     21: fifteenTwentyOne,
     22: fifteenTwentyTwo,
     23: fifteenTwentyThree,
+    24: fifteenTwentyFour,
   },
 };
 

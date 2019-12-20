@@ -1,19 +1,16 @@
-import Combinatorics from "js-combinatorics";
+import { permutation } from "js-combinatorics";
 
 export const fifteenNine = (input) => {
   const cities = [];
-  const dist = input
-    .split("\n")
-    .filter((line) => line)
-    .map((line) => {
-      const instruction = line.split(" ");
-      const [city1, city2, distance] = [instruction[0], instruction[2], Number(instruction[4])];
-      if (!cities.includes(city1)) cities.push(city1);
-      if (!cities.includes(city2)) cities.push(city2);
-      return [city1, city2, distance];
-    });
+  const dist = input.map((line) => {
+    const instruction = line.split(" ");
+    const [city1, city2, distance] = [instruction[0], instruction[2], Number(instruction[4])];
+    if (!cities.includes(city1)) cities.push(city1);
+    if (!cities.includes(city2)) cities.push(city2);
+    return [city1, city2, distance];
+  });
 
-  const citiesCombined = Combinatorics.permutation(cities).toArray();
+  const citiesCombined = permutation(cities).toArray();
   const citylens = citiesCombined.map((combination) => {
     let citylen = 0;
     cities.forEach((_, pos) => {

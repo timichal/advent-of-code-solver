@@ -1,16 +1,13 @@
 export const fifteenSixteen = (input) => {
-  const instructions = input
-    .split("\n")
-    .filter((line) => line)
-    .map((el) => {
-      const splitEl = el.split(/[ ,:]/);
-      return {
-        id: splitEl[1],
-        [splitEl[3]]: Number(splitEl[5]),
-        [splitEl[7]]: Number(splitEl[9]),
-        [splitEl[11]]: Number(splitEl[13]),
-      };
-    });
+  const instructions = input.map((el) => {
+    const splitEl = el.split(/[ ,:]/);
+    return {
+      id: splitEl[1],
+      [splitEl[3]]: Number(splitEl[5]),
+      [splitEl[7]]: Number(splitEl[9]),
+      [splitEl[11]]: Number(splitEl[13]),
+    };
+  });
 
   const part1 = instructions
     .filter((aunt) => (

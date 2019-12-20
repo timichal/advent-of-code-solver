@@ -23,6 +23,7 @@ export const titles = {
     21: "RPG Simulator 20XX",
     22: "Wizard Simulator 20XX",
     23: "Opening the Turing Lock",
+    24: "It Hangs in the Balance",
   },
 };
 

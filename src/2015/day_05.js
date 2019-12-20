@@ -24,13 +24,9 @@ export const fifteenFive = (input) => {
     return containsPairTwice && containsRepeatingLetter && true;
   };
 
-  const partOne = input
-    .split("\n")
-    .reduce((acc, string) => acc + isStringNicePartOne(string), 0);
+  const partOne = input.reduce((acc, string) => acc + isStringNicePartOne(string), 0);
 
-  const partTwo = input
-    .split("\n")
-    .reduce((acc, string) => acc + isStringNicePartTwo(string), 0);
+  const partTwo = input.reduce((acc, string) => acc + isStringNicePartTwo(string), 0);
 
   return [partOne, partTwo];
 };

@@ -1,11 +1,13 @@
 export const fifteenEleven = (input) => {
-  const originalPassword = input.trim();
+  const originalPassword = input[0];
 
   const nextChar = (str) => {
     let depth = 1;
     while (str[str.length - depth] === "z") depth += 1;
 
-    return str.substring(0, str.length - depth) + String.fromCharCode(str.charCodeAt(str.length - depth) + 1) + "a".repeat(depth - 1);
+    return str.substring(0, str.length - depth)
+      + String.fromCharCode(str.charCodeAt(str.length - depth) + 1)
+      + "a".repeat(depth - 1);
   };
 
   const passwordRequirements = (string) => {

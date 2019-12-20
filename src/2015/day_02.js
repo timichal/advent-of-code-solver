@@ -9,14 +9,10 @@ export const fifteenTwo = (input) => {
   const computeRibbon = ([l, w, h]) => 2 * Math.min(l + w, w + h, h + l) + (l * w * h);
 
   const part1 = input
-    .split("\n")
-    .filter((line) => line)
     .map((boxDimensions) => computeDimensions(boxDimensions.split("x")))
     .reduce((acc, val) => acc + val, 0);
 
   const part2 = input
-    .split("\n")
-    .filter((line) => line)
     .map((boxDimensions) => computeRibbon(boxDimensions.split("x").map((el) => parseInt(el, 10))))
     .reduce((acc, val) => acc + val, 0);
 
