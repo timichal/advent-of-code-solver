@@ -16,6 +16,7 @@ export const fifteenTwentyFour = (input) => {
     Math.min(...findLeastValidPackages(packages, groups)
       .map((packageSet) => packageSet.reduce((acc, val) => acc * val, 1)))
   );
+
   const part1 = findLeastEntaglement(instructions, 3);
   const part2 = findLeastEntaglement(instructions, 4);
   return [part1, part2];
