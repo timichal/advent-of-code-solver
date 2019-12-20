@@ -10,9 +10,9 @@ const $ = (element) => (document.querySelectorAll(element).length === 1
 const puzzleInfoChange = (clear = true) => {
   const year = $("input[name='year']:checked").value;
   const day = $("input[name='day']:checked").value;
-  const puzzleLink = `https://adventofcode.com/${year}/day/${day}`;
+  const puzzleLink = `https://adventofcode.com/${year}/day/${Number(day)}`;
   const solutionLink = `https://github.com/timichal/advent-of-code-solver/blob/master/src/${year}/day_${day}.js`;
-  const inputLink = `https://adventofcode.com/${year}/day/${day}/input`;
+  const inputLink = `https://adventofcode.com/${year}/day/${Number(day)}/input`;
   $("#puzzle-info").innerHTML = `
     <a href=${puzzleLink} target="_blank">
       ${year}, Day ${day}: ${titles[Number(year)][Number(day)]}

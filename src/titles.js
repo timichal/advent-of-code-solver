@@ -26,6 +26,9 @@ export const titles = {
     24: "It Hangs in the Balance",
     25: "Let It Snow",
   },
+  2016: {
+    1: "No Time for a Taxicab",
+  },
 };
 
 export default titles;
