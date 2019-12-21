@@ -1,31 +1,21 @@
 import { permutation } from "js-combinatorics";
 
 export const fifteenNine = (input) => {
-  const cities = [];
-  const dist = input.map((line) => {
-    const instruction = line.split(" ");
-    const [city1, city2, distance] = [instruction[0], instruction[2], Number(instruction[4])];
-    if (!cities.includes(city1)) cities.push(city1);
-    if (!cities.includes(city2)) cities.push(city2);
-    return [city1, city2, distance];
-  });
+  const instructions = input.map((line) => line.split(" "));
+  const distances = instructions
+    .map((instruction) => [instruction[0], instruction[2], Number(instruction[4])]);
+  const cities = Array
+    .from(new Set(distances.flat().filter((city) => typeof city === "string")));
 
-  const citiesCombined = permutation(cities).toArray();
-  const citylens = citiesCombined.map((combination) => {
-    let citylen = 0;
-    cities.forEach((_, pos) => {
-      dist.forEach((distpair) => {
-        if (distpair.includes(combination[pos]) && distpair.includes(combination[pos + 1])) {
-          citylen += distpair[2];
-        }
-      });
-    });
-    return citylen;
-  });
-
-  const part1 = Math.min(...citylens);
-  const part2 = Math.max(...citylens);
-  return [part1, part2];
+  const routes = permutation(cities).map((combination) => (
+    combination.reduce((totalLength, currentCity, index) => {
+      const nextCity = combination[index + 1];
+      const distance = distances
+        .find((dist) => dist.includes(currentCity) && dist.includes(nextCity));
+      return distance ? distance[2] + totalLength : totalLength;
+    }, 0)
+  ));
+  return [Math.min(...routes), Math.max(...routes)];
 };
 
 export default fifteenNine;

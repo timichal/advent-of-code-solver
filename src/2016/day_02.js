@@ -16,15 +16,14 @@ export const sixteenTwo = (input) => {
   };
 
   const starMover = (currentPos, move) => (Object.values(starPositions)
-    .filter((position) => currentPos[0] + move[0] === position[0]
+    .find((position) => currentPos[0] + move[0] === position[0]
       && currentPos[1] + move[1] === position[1])
-    .length === 1
     ? [currentPos[0] + move[0], currentPos[1] + move[1]]
     : currentPos);
 
   const starToNum = (currentPos) => Object.entries(starPositions)
-    .filter((position) => position[1][0] === currentPos[0]
-      && position[1][1] === currentPos[1])[0][0];
+    .find((position) => position[1][0] === currentPos[0]
+      && position[1][1] === currentPos[1])[0];
 
   // common
   const toMoves = (move) => {

@@ -13,7 +13,7 @@ export const fifteenTwo = (input) => {
     .reduce((acc, val) => acc + val, 0);
 
   const part2 = input
-    .map((boxDimensions) => computeRibbon(boxDimensions.split("x").map((el) => parseInt(el, 10))))
+    .map((boxDimensions) => computeRibbon(boxDimensions.split("x").map(Number)))
     .reduce((acc, val) => acc + val, 0);
 
   return [part1, part2];

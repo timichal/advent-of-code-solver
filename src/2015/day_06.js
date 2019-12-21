@@ -1,6 +1,6 @@
 export const fifteenSix = (input) => {
-  const matrixOne = new Array(1000).fill(0).map(() => new Array(1000).fill(0));
-  const matrixTwo = new Array(1000).fill(0).map(() => new Array(1000).fill(0));
+  const matrixOne = Array(1000).fill(0).map(() => Array(1000).fill(0));
+  const matrixTwo = Array(1000).fill(0).map(() => Array(1000).fill(0));
 
   input.forEach((instruction) => {
     const [xStart, yStart, xEnd, yEnd] = instruction.match(/\d+/g).map(Number);

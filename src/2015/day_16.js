@@ -9,33 +9,35 @@ export const fifteenSixteen = (input) => {
     };
   });
 
-  const part1 = instructions
-    .filter((aunt) => (
-      (aunt.children === undefined || aunt.children === 3)
-      && (aunt.cats === undefined || aunt.cats === 7)
-      && (aunt.samoyeds === undefined || aunt.samoyeds === 2)
-      && (aunt.pomeranians === undefined || aunt.pomeranians === 3)
-      && (aunt.akitas === undefined || aunt.akitas === 0)
-      && (aunt.vizslas === undefined || aunt.vizslas === 0)
-      && (aunt.goldfish === undefined || aunt.goldfish === 5)
-      && (aunt.trees === undefined || aunt.trees === 3)
-      && (aunt.cars === undefined || aunt.cars === 2)
-      && (aunt.perfumes === undefined || aunt.perfumes === 1)
-    ))[0].id;
+  const eq = (property, amount) => property === undefined || property === amount;
+  const more = (property, amount) => property === undefined || property > amount;
+  const less = (property, amount) => property === undefined || property < amount;
 
-  const part2 = instructions
-    .filter((aunt) => (
-      (aunt.children === undefined || aunt.children === 3)
-      && (aunt.cats === undefined || aunt.cats > 7)
-      && (aunt.samoyeds === undefined || aunt.samoyeds === 2)
-      && (aunt.pomeranians === undefined || aunt.pomeranians < 3)
-      && (aunt.akitas === undefined || aunt.akitas === 0)
-      && (aunt.vizslas === undefined || aunt.vizslas === 0)
-      && (aunt.goldfish === undefined || aunt.goldfish < 5)
-      && (aunt.trees === undefined || aunt.trees > 3)
-      && (aunt.cars === undefined || aunt.cars === 2)
-      && (aunt.perfumes === undefined || aunt.perfumes === 1)
-    ))[0].id;
+  const part1 = instructions.find((aunt) => (
+    eq(aunt.children, 3)
+    && eq(aunt.cats, 7)
+    && eq(aunt.samoyeds, 2)
+    && eq(aunt.pomeranians, 3)
+    && eq(aunt.akitas, 0)
+    && eq(aunt.vizslas, 0)
+    && eq(aunt.goldfish, 5)
+    && eq(aunt.trees, 3)
+    && eq(aunt.cars, 2)
+    && eq(aunt.perfumes, 1)
+  )).id;
+
+  const part2 = instructions.find((aunt) => (
+    eq(aunt.children, 3)
+    && more(aunt.cats, 7)
+    && eq(aunt.samoyeds, 2)
+    && less(aunt.pomeranians, 3)
+    && eq(aunt.akitas, 0)
+    && eq(aunt.vizslas, 0)
+    && less(aunt.goldfish, 5)
+    && more(aunt.trees, 3)
+    && eq(aunt.cars, 2)
+    && eq(aunt.perfumes, 1)
+  )).id;
 
   return [part1, part2];
 };

@@ -10,23 +10,21 @@ export const fifteenFifteen = (input) => {
     return combos;
   };
 
+  const product = (values) => values.reduce((acc, val) => acc * val, 1);
+
   const bestScore = (ingredients, caloriesGoal) => (
     Math.max(...getCombos(100, ingredients.length).map((ratio) => {
-      const scoreParts = [0, 0, 0, 0, 0];
+      const scores = [0, 0, 0, 0, 0];
+      // readability wins over a map/reduce
       for (let ingredient = 0; ingredient < ingredients.length; ingredient++) {
-        for (let property = 0; property < scoreParts.length; property++) {
-          scoreParts[property] += ingredients[ingredient][property] * ratio[ingredient];
+        for (let property = 0; property < scores.length; property++) {
+          scores[property] += ingredients[ingredient][property] * ratio[ingredient];
         }
       }
-
-      if (caloriesGoal && scoreParts[4] !== caloriesGoal) return 0;
-      return Math.max(0, scoreParts[0])
-        * Math.max(0, scoreParts[1])
-        * Math.max(0, scoreParts[2])
-        * Math.max(0, scoreParts[3]);
+      if (caloriesGoal && scores[4] !== caloriesGoal) return 0;
+      return scores.every((score) => score > 0) ? product(scores.slice(0, 4)) : 0;
     }))
   );
-
   const part1 = bestScore(instructions);
   const part2 = bestScore(instructions, 500);
   return [part1, part2];

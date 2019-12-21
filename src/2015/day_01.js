@@ -1,12 +1,11 @@
 export const fifteenOne = (input) => {
   const instructions = [...input[0]];
-  let part1 = 0;
-  let part2;
 
-  instructions.forEach((char, index) => {
-    part1 += char === "(" ? 1 : -1;
-    if (!part2 && part1 === -1) part2 = index + 1;
-  });
+  let part2;
+  const part1 = instructions.reduce((floor, instruction, index) => {
+    if (!part2 && floor === -1) part2 = index;
+    return floor + (instruction === "(" ? 1 : -1);
+  }, 0);
 
   return [part1, part2];
 };

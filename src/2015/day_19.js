@@ -4,7 +4,7 @@ export const fifteenNineteen = (input) => {
     .filter((line) => line.length === 2)
     .sort((a, b) => b[1].length - a[1].length);
 
-  const molecule = input.filter((line) => line && line.split(" ").length === 1)[0];
+  const molecule = input.find((line) => line && line.split(" ").length === 1);
   const combinations = instructions
     .map((instruction) => Array
       .from(molecule.matchAll(instruction[0]), (match) => match.index)

@@ -1,22 +1,14 @@
 export const fifteenTwelve = (input) => {
   const countArr = (arr) => {
-    let count = 0;
-
     // if an actual object and contains "red", discount it (count as 0)
-    if (!Array.isArray(arr) && Object.values(arr).includes("red")) return count;
-
-    // else coerce to array
-    arr = Object.values(arr);
-
-    // count the numbers, go a level deeper if object/array
-    arr.forEach((el) => {
-      if (typeof el === "number") count += el;
-      else if (typeof el === "object") count += countArr(el);
-    });
-
-    return count;
+    if (!Array.isArray(arr) && Object.values(arr).includes("red")) return 0;
+    // else coerce to array and count the numbers, go a level deeper if object/array
+    return Object.values(arr).reduce((count, el) => {
+      if (typeof el === "number") return count + el;
+      if (typeof el === "object") return count + countArr(el);
+      return count;
+    }, 0);
   };
-
 
   const part1 = input[0]
     .match(/-?\d+/g)
