@@ -28,6 +28,7 @@ export const titles = {
   },
   2016: {
     1: "No Time for a Taxicab",
+    2: "Bathroom Security",
   },
 };
 
