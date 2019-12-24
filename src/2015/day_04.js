@@ -1,4 +1,4 @@
-import md5 from "js-md5";
+import md5 from "../md5";
 
 export const fifteenFour = (input) => {
   const instructions = input[0];
@@ -9,7 +9,6 @@ export const fifteenFour = (input) => {
       suffix += 1;
     }
   };
-
   return [getSuffix(instructions, "00000"), getSuffix(instructions, "000000")];
 };
 

@@ -25,7 +25,6 @@
     "webpack-dev-server": "^3.10.0"
   },
   "dependencies": {
-    "js-combinatorics": "^0.5.4",
-    "js-md5": "^0.7.3"
+    "js-combinatorics": "^0.5.4"
   }
 }

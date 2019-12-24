@@ -31,6 +31,7 @@ export const titles = {
     2: "Bathroom Security",
     3: "Squares With Three Sides",
     4: "Security Through Obscurity",
+    5: "How About a Nice Game of Chess?",
   },
 };
 
