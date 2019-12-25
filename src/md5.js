@@ -65,15 +65,15 @@ const stackRestore = (stack) => Module.asm.stackRestore(stack);
 Module.md5_hex = (string) => Module.asm.md5_hex(string);
 
 // String transforms
-function UTF8ToString(idx, maxBytesToRead) {
+const UTF8ToString = (idx, maxBytesToRead) => {
   const endIdx = idx + maxBytesToRead;
   let endPtr = idx;
   while (HEAPU8[endPtr] && !(endPtr >= endIdx)) endPtr += 1;
 
   return new TextDecoder("utf8").decode(HEAPU8.subarray(idx, endPtr));
-}
+};
 
-function stringToUTF8(str, outIdx, maxBytesToWrite) {
+const stringToUTF8 = (str, outIdx, maxBytesToWrite) => {
   const startIdx = outIdx;
   const endIdx = outIdx + maxBytesToWrite - 1; // -1 for string null terminator.
   for (let i = 0; i < str.length; ++i) {
@@ -105,7 +105,7 @@ function stringToUTF8(str, outIdx, maxBytesToWrite) {
   // Null-terminate the pointer to the buffer.
   HEAPU8[outIdx] = 0;
   return outIdx - startIdx;
-}
+};
 
 // main function
 export const md5 = (input) => {

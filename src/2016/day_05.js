@@ -1,9 +1,8 @@
-// https://github.com/biggun1860/md5-sha1-wasm
 import md5 from "../md5";
 
 export function sixteenFive(input) {
   const instructions = input[0];
-  const getSuffix = (id, prefix) => {
+  const getPasswords = (id, prefix) => {
     let suffix = 0;
     const part1 = [];
     const part2 = Array(8).fill("_");
@@ -18,7 +17,7 @@ export function sixteenFive(input) {
     return [part1.join(""), part2.join("")];
   };
 
-  return getSuffix(instructions, "00000");
+  return getPasswords(instructions, "00000");
 }
 
 export default sixteenFive;
