@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
   mode: "development",
   output: {
     path: __dirname,
@@ -13,15 +13,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
     ],
+  },
+  resolve: {
+    extensions: [".ts", ".js"],
   },
 };

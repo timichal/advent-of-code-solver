@@ -2,6 +2,7 @@ import { fifteenOne } from "./2015/day_01";
 import { fifteenTwo } from "./2015/day_02";
 import { fifteenThree } from "./2015/day_03";
 import { fifteenFour } from "./2015/day_04";
+/*
 import { fifteenFive } from "./2015/day_05";
 import { fifteenSix } from "./2015/day_06";
 import { fifteenSeven } from "./2015/day_07";
@@ -29,13 +30,18 @@ import { sixteenThree } from "./2016/day_03";
 import { sixteenFour } from "./2016/day_04";
 import { sixteenFive } from "./2016/day_05";
 import { sixteenSix } from "./2016/day_06";
+import { sixteenSeven } from "./2016/day_07";
+*/
 
-export const solutions = {
+export const solutions: {
+  [year: number]: { [day: number]: (input: string[]) => [number, number] }
+} = {
   2015: {
     1: fifteenOne,
     2: fifteenTwo,
     3: fifteenThree,
     4: fifteenFour,
+    /*
     5: fifteenFive,
     6: fifteenSix,
     7: fifteenSeven,
@@ -57,14 +63,18 @@ export const solutions = {
     23: fifteenTwentyThree,
     24: fifteenTwentyFour,
     25: fifteenTwentyFive,
+    */
   },
   2016: {
+    /*
     1: sixteenOne,
     2: sixteenTwo,
     3: sixteenThree,
     4: sixteenFour,
     5: sixteenFive,
     6: sixteenSix,
+    7: sixteenSeven,
+    */
   },
 };
 

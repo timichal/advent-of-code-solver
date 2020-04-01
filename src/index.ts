@@ -1,11 +1,9 @@
 import { solutions } from "./solutions";
 import { titles } from "./titles";
 
-const sanitizeInput = (input) => input.split("\n").filter((line) => line);
-
-const $ = (element) => (document.querySelectorAll(element).length === 1
-  ? document.querySelector(element)
-  : document.querySelectorAll(element));
+const sanitizeInput = (input: string) => input.split("\n").filter((line) => line);
+const $ = (element: string) => <HTMLInputElement>document.querySelector(element);
+const $$ = (element: string) => <NodeListOf<HTMLInputElement>>document.querySelectorAll(element);
 
 const puzzleInfoChange = (clear = true) => {
   const year = $("input[name='year']:checked").value;
@@ -30,12 +28,12 @@ const puzzleInfoChange = (clear = true) => {
 };
 
 window.onload = () => puzzleInfoChange(false);
-$("input[type='radio']").forEach((input) => input.addEventListener("click", puzzleInfoChange));
+$$("input[type='radio']").forEach((input) => input.addEventListener("click", () => puzzleInfoChange()));
 
 $("#submit").addEventListener("click", () => {
-  const year = $("input[name='year']:checked").value;
-  const day = $("input[name='day']:checked").value;
+  const year = Number($("input[name='year']:checked").value);
+  const day = Number($("input[name='day']:checked").value);
   const input = sanitizeInput($("#input").value);
-  const [part1, part2] = solutions[year][Number(day)] ? solutions[year][Number(day)](input) : ["Not available!", "Not available!"];
+  const [part1, part2] = solutions[year][day] ? solutions[year][day](input) : ["Not available!", "Not available!"];
   $("#answer").innerHTML = `Part 1: ${part1} <br> Part 2: ${part2}`;
 });

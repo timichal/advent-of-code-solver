@@ -1,4 +1,4 @@
-export const titles = {
+export const titles: { [year: number]: { [day: number]: string } } = {
   2015: {
     1: "Not Quite Lisp",
     2: "I Was Told There Would Be No Math",
@@ -33,6 +33,7 @@ export const titles = {
     4: "Security Through Obscurity",
     5: "How About a Nice Game of Chess?",
     6: "Signals and Noise",
+    7: "Internet Protocol Version 7",
   },
 };
 
