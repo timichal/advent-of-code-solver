@@ -1,0 +1,14 @@
+{
+  "extends": ["airbnb-typescript/base"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "linebreak-style": "off",
+    "@typescript-eslint/quotes": ["error", "double"],
+    "max-len": ["error", 140]
+  }
+}

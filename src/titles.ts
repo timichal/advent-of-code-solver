@@ -27,6 +27,7 @@ export const titles: { [year: number]: { [day: number]: string } } = {
     25: "Let It Snow",
   },
   2016: {
+    /*
     1: "No Time for a Taxicab",
     2: "Bathroom Security",
     3: "Squares With Three Sides",
@@ -34,6 +35,7 @@ export const titles: { [year: number]: { [day: number]: string } } = {
     5: "How About a Nice Game of Chess?",
     6: "Signals and Noise",
     7: "Internet Protocol Version 7",
+    */
   },
 };
 
