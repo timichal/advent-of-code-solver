@@ -4,10 +4,10 @@ import { fifteenThree } from "./2015/day_03";
 import { fifteenFour } from "./2015/day_04";
 import { fifteenFive } from "./2015/day_05";
 import { fifteenSix } from "./2015/day_06";
-/*
 import { fifteenSeven } from "./2015/day_07";
 import { fifteenEight } from "./2015/day_08";
 import { fifteenNine } from "./2015/day_09";
+/*
 import { fifteenTen } from "./2015/day_10";
 import { fifteenEleven } from "./2015/day_11";
 import { fifteenTwelve } from "./2015/day_12";
@@ -43,10 +43,10 @@ export const solutions: {
     4: fifteenFour,
     5: fifteenFive,
     6: fifteenSix,
-    /*
     7: fifteenSeven,
     8: fifteenEight,
     9: fifteenNine,
+    /*
     10: fifteenTen,
     11: fifteenEleven,
     12: fifteenTwelve,

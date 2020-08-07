@@ -1,4 +1,6 @@
-export const fifteenSeven = (input) => {
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-eval */
+export const fifteenSeven = (input: string[]): [number, number] => {
   const instructions = input
     .map((instruction) => instruction
       .replace("AND", "&")
@@ -7,9 +9,9 @@ export const fifteenSeven = (input) => {
       .replace("LSHIFT", "<<")
       .replace("RSHIFT", ">>")
       .split(" -> "))
-    .reduce((acc, val) => Object.assign(acc, { [val[1]]: val[0] }), {});
+    .reduce((object, entry) => Object.assign(object, { [entry[1]]: entry[0] }), {});
 
-  const getInstructionValue = (register, wantedInstruction) => {
+  const getInstructionValue = (register: { [key: string]: string }, wantedInstruction: string) => {
     while (!register[wantedInstruction].match(/^\d+$/)) {
       Object.keys(register).forEach(() => {
         Object.keys(register).forEach((instruction) => {
@@ -34,7 +36,7 @@ export const fifteenSeven = (input) => {
 
   const part1 = getInstructionValue({ ...instructions }, "a");
   const part2 = getInstructionValue({ ...instructions, b: part1 }, "a");
-  return [part1, part2];
+  return [Number(part1), Number(part2)];
 };
 
 export default fifteenSeven;
