@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "target": "esnext", 
+    "target": "es2018", 
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "module": "esnext",
 
     /* Strict Type-Checking Options */
