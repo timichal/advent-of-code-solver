@@ -1,5 +1,15 @@
-export const fifteenFourteen = (input) => {
-  const instructions = input.map((el) => {
+type Deer = {
+  speed: number,
+  flightTime: number,
+  restTime: number,
+  isResting: boolean,
+  cyclePosition: number,
+  distanceTravelled: number,
+  points: number,
+};
+
+export const fifteenFourteen = (input: string[]): [number, number] => {
+  const instructions: Deer[] = input.map((el) => {
     const splitEl = el.split(" ");
     return {
       speed: Number(splitEl[3]),
@@ -12,7 +22,7 @@ export const fifteenFourteen = (input) => {
     };
   });
 
-  const moveReindeer = (reindeer, seconds) => {
+  const moveReindeer = (reindeer: Deer[], seconds: number) => {
     for (let i = 0; i < seconds; i++) {
       reindeer.forEach((deer) => {
         deer.cyclePosition += 1;
@@ -29,8 +39,8 @@ export const fifteenFourteen = (input) => {
       });
 
       // award points to reindeer in the lead
-      const leadingDistance = Math.max(...reindeer.map((deer) => deer.distanceTravelled));
-      reindeer.forEach((deer) => {
+      const leadingDistance = Math.max(...reindeer.map((deer: Deer) => deer.distanceTravelled));
+      reindeer.forEach((deer: Deer) => {
         if (deer.distanceTravelled === leadingDistance) deer.points += 1;
       });
     }
@@ -39,8 +49,8 @@ export const fifteenFourteen = (input) => {
   };
 
   const race = moveReindeer(instructions.map((deer) => ({ ...deer })), 2503);
-  const part1 = Math.max(...race.map((deer) => deer.distanceTravelled));
-  const part2 = Math.max(...race.map((deer) => deer.points));
+  const part1 = Math.max(...race.map((deer: Deer) => deer.distanceTravelled));
+  const part2 = Math.max(...race.map((deer: Deer) => deer.points));
   return [part1, part2];
 };
 

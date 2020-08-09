@@ -11,9 +11,9 @@ import { fifteenTen } from "./2015/day_10";
 import { fifteenEleven } from "./2015/day_11";
 import { fifteenTwelve } from "./2015/day_12";
 import { fifteenThirteen } from "./2015/day_13";
-/*
 import { fifteenFourteen } from "./2015/day_14";
 import { fifteenFifteen } from "./2015/day_15";
+/*
 import { fifteenSixteen } from "./2015/day_16";
 import { fifteenSeventeen } from "./2015/day_17";
 import { fifteenEighteen } from "./2015/day_18";
@@ -50,9 +50,9 @@ export const solutions: {
     11: fifteenEleven,
     12: fifteenTwelve,
     13: fifteenThirteen,
-    /*
     14: fifteenFourteen,
     15: fifteenFifteen,
+    /*
     16: fifteenSixteen,
     17: fifteenSeventeen,
     18: fifteenEighteen,

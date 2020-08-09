@@ -1,19 +1,19 @@
-export const fifteenFifteen = (input) => {
-  const instructions = input.map((el) => el.match(/-?\d/g));
+export const fifteenFifteen = (input: string[]): [number, number] => {
+  const instructions = input.map((el) => el.match(/-?\d/g)?.map(Number) ?? [0, 0, 0, 0, 0]);
 
-  const getCombos = (sum, len) => {
-    const combos = [];
-    if (len === 1) return [sum];
+  const getCombos = (sum: number, len: number): number[][] => {
+    const combos: number[][] = [];
+    if (len === 1) return [[sum]];
     for (let curNum = 1; curNum < sum; curNum++) {
-      getCombos(sum - curNum, len - 1).forEach((combo) => { combos.push([curNum].concat(combo)); });
+      getCombos(sum - curNum, len - 1).forEach((combo: any) => { combos.push([curNum].concat(combo)); });
     }
     return combos;
   };
 
-  const product = (values) => values.reduce((acc, val) => acc * val, 1);
+  const product = (values: number[]) => values.reduce((acc: number, val: number) => acc * val, 1);
 
-  const bestScore = (ingredients, caloriesGoal) => (
-    Math.max(...getCombos(100, ingredients.length).map((ratio) => {
+  const bestScore = (ingredients: number[][], caloriesGoal?: number) => (
+    Math.max(...getCombos(100, ingredients.length).map((ratio: number[]) => {
       const scores = [0, 0, 0, 0, 0];
       // readability wins over a map/reduce
       for (let ingredient = 0; ingredient < ingredients.length; ingredient++) {
