@@ -1,11 +1,11 @@
 export const fifteenSixteen = (input: string[]): [number, number] => {
-  const instructions = input.map((el) => {
-    const splitEl = el.split(/[ ,:]/);
+  const instructions = input.map((instruction) => {
+    const splitInstruction = instruction.split(/[ ,:]/);
     return {
-      id: Number(splitEl[1]),
-      [splitEl[3]]: Number(splitEl[5]),
-      [splitEl[7]]: Number(splitEl[9]),
-      [splitEl[11]]: Number(splitEl[13]),
+      id: Number(splitInstruction[1]),
+      [splitInstruction[3]]: Number(splitInstruction[5]),
+      [splitInstruction[7]]: Number(splitInstruction[9]),
+      [splitInstruction[11]]: Number(splitInstruction[13]),
     };
   });
 

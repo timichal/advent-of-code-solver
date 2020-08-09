@@ -1,4 +1,4 @@
-import { Permutation } from "js-combinatorics";
+import { permutation } from "js-combinatorics";
 
 export const fifteenNine = (input: string[]): [number, number] => {
   const instructions = input.map((line) => line.split(" "));
@@ -7,7 +7,7 @@ export const fifteenNine = (input: string[]): [number, number] => {
   const cities = Array
     .from(new Set(distances.flat().filter((city) => typeof city === "string")));
 
-  const routes = [...new Permutation(cities)].map((combination: string[]) => (
+  const routes = permutation(cities).map((combination) => (
     combination.reduce((totalLength: number, currentCity, index) => {
       const nextCity = combination[index + 1];
       const distance = distances

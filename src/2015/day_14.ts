@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 type Deer = {
   speed: number,
   flightTime: number,
@@ -9,12 +10,12 @@ type Deer = {
 };
 
 export const fifteenFourteen = (input: string[]): [number, number] => {
-  const instructions: Deer[] = input.map((el) => {
-    const splitEl = el.split(" ");
+  const instructions: Deer[] = input.map((instruction) => {
+    const splitInstruction = instruction.split(" ");
     return {
-      speed: Number(splitEl[3]),
-      flightTime: Number(splitEl[6]),
-      restTime: Number(splitEl[13]),
+      speed: Number(splitInstruction[3]),
+      flightTime: Number(splitInstruction[6]),
+      restTime: Number(splitInstruction[13]),
       isResting: false,
       cyclePosition: 0,
       distanceTravelled: 0,

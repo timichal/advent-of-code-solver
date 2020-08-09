@@ -1,4 +1,4 @@
-import { PowerSet } from "js-combinatorics";
+import { power } from "js-combinatorics";
 import { sum } from "../helperFunctions";
 
 export const fifteenSeventeen = (input: string[]): [number, number] => {
@@ -8,7 +8,7 @@ export const fifteenSeventeen = (input: string[]): [number, number] => {
   let minLength = Infinity;
   let part2 = 0;
 
-  [...new PowerSet(instructions)].forEach((containerSet: number[]) => {
+  power(instructions).forEach((containerSet: number[]) => {
     if (sum(containerSet) === 150) {
       part1 += 1;
       if (containerSet.length < minLength) {

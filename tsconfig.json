@@ -1,15 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es2018", 
+    "target": "es2019", 
     "lib": [
       "esnext",
       "dom"
     ],
     "module": "esnext",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./types"
-    ],
     /* Strict Type-Checking Options */
     "strict": true,                        /* Enable all strict type-checking options. */
     "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */

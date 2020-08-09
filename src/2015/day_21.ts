@@ -1,4 +1,4 @@
-import { Combination } from "js-combinatorics";
+import { combination } from "js-combinatorics";
 import { sum } from "../helperFunctions";
 
 export const fifteenTwentyOne = (input: string[]): [number, number] => {
@@ -9,7 +9,7 @@ export const fifteenTwentyOne = (input: string[]): [number, number] => {
     armor: [[13, 0, 1], [31, 0, 2], [53, 0, 3], [75, 0, 4], [102, 0, 5]],
     rings: [[25, 1, 0], [50, 2, 0], [100, 3, 0], [20, 0, 1], [40, 0, 2], [80, 0, 3]],
   };
-  const ringPairs: number[][][] = [...new Combination(store.rings, 2)];
+  const ringPairs = combination(store.rings, 2);
 
   // 1 weapon, 0-1 armor, 0-2 rings (unique)
   const options = [
