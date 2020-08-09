@@ -10,10 +10,9 @@ const puzzleInfoChange = (clear = true) => {
   const year = $("input[name='year']:checked").value;
   const day = $("input[name='day']:checked").value;
   $$("input[name='day']").forEach((input) => {
-    if (!solutions[Number(year)][Number(input.value)]) {
-      input.disabled = true;
-      if (input.parentElement) input.parentElement.style.color = "grey";
-    }
+    const isPresent = !!solutions[Number(year)][Number(input.value)];
+    input.disabled = !isPresent;
+    if (input.parentElement) input.parentElement.style.color = isPresent ? "#eee" : "grey";
   });
   const puzzleLink = `https://adventofcode.com/${year}/day/${Number(day)}`;
   const solutionLink = `https://github.com/timichal/advent-of-code-solver/blob/master/src/${year}/day_${day}.ts`;
@@ -40,9 +39,6 @@ $$("input[type='radio']").forEach((input) => input.addEventListener("click", () 
 $("#submit").addEventListener("click", () => {
   const year = Number($("input[name='year']:checked").value);
   const day = Number($("input[name='day']:checked").value);
-  $$("input[name='day']").forEach((input) => {
-    if (!solutions[year][Number(input.value)]) input.disabled = true;
-  });
   const input = sanitizeInput($("#input").value);
   const [part1, part2] = solutions[year][day](input);
   $("#answer").innerHTML = `Part 1: ${part1} <br> Part 2: ${part2}`;

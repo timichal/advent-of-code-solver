@@ -1,11 +1,11 @@
-export const sixteenOne = (input) => {
+export const sixteenOne = (input: string[]): [number, number] => {
   const instructions = input[0]
     .split(", ")
     .join("")
-    .replace(/\d+/g, (match) => "M".repeat(match));
+    .replace(/\d+/g, (match) => "M".repeat(Number(match)));
 
-  const visitedLocs = [];
-  let firstDuplicate;
+  const visitedLocs: [number, number][] = [];
+  let firstDuplicate: undefined | [number, number];
   // direction: 0 north, 1 east, 2 south, 3 west
   const planner = [...instructions].reduce(([x, y, direction], instruction) => {
     if (instruction === "R") return [x, y, (direction + 1) % 4];
@@ -24,7 +24,7 @@ export const sixteenOne = (input) => {
   }, [0, 0, 0]);
 
   const part1 = Math.abs(planner[0]) + Math.abs(planner[1]);
-  const part2 = Math.abs(firstDuplicate[0]) + Math.abs(firstDuplicate[1]);
+  const part2 = firstDuplicate ? Math.abs(firstDuplicate[0]) + Math.abs(firstDuplicate[1]) : 0;
   return [part1, part2];
 };
 

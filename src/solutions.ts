@@ -23,8 +23,8 @@ import { fifteenTwentyTwo } from "./2015/day_22";
 import { fifteenTwentyThree } from "./2015/day_23";
 import { fifteenTwentyFour } from "./2015/day_24";
 import { fifteenTwentyFive } from "./2015/day_25";
-/*
 import { sixteenOne } from "./2016/day_01";
+/*
 import { sixteenTwo } from "./2016/day_02";
 import { sixteenThree } from "./2016/day_03";
 import { sixteenFour } from "./2016/day_04";
@@ -64,8 +64,8 @@ export const solutions: {
     25: fifteenTwentyFive,
   },
   2016: {
-    /*
     1: sixteenOne,
+    /*
     2: sixteenTwo,
     3: sixteenThree,
     4: sixteenFour,
