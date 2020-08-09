@@ -1,14 +1,15 @@
-import { combination } from "js-combinatorics";
+import { Combination } from "js-combinatorics";
+import { sum } from "../helperFunctions";
 
-export const fifteenTwentyOne = (input) => {
-  const [bossMaxHp, bossDamage, bossArmor] = input.map((line) => line.split(": ")[1]);
+export const fifteenTwentyOne = (input: string[]): [number, number] => {
+  const [bossMaxHp, bossDamage, bossArmor] = input.map((line) => Number(line.split(": ")[1]));
 
   const store = {
     weapons: [[8, 4, 0], [10, 5, 0], [25, 6, 0], [40, 7, 0], [74, 8, 0]],
     armor: [[13, 0, 1], [31, 0, 2], [53, 0, 3], [75, 0, 4], [102, 0, 5]],
     rings: [[25, 1, 0], [50, 2, 0], [100, 3, 0], [20, 0, 1], [40, 0, 2], [80, 0, 3]],
   };
-  const ringPairs = combination(store.rings, 2);
+  const ringPairs: number[][][] = [...new Combination(store.rings, 2)];
 
   // 1 weapon, 0-1 armor, 0-2 rings (unique)
   const options = [
@@ -20,9 +21,9 @@ export const fifteenTwentyOne = (input) => {
     store.weapons.map((weapon) => store.armor.map((piece) => ringPairs.map((ringPair) => [weapon, piece, ...ringPair]))).flat(2), // 112
   ].flat();
 
-  const mapSum = (arr, pos) => arr.map((el) => el[pos]).reduce((acc, val) => acc + val);
+  const mapSum = (arr: number[][], pos: number) => sum(arr.map((el) => el[pos]));
 
-  const simulation = (setup) => {
+  const simulation = (setup: number[][]) => {
     let playerHp = 100;
     let bossHp = bossMaxHp;
     const [cost, playerDamage, playerArmor] = [mapSum(setup, 0), mapSum(setup, 1), mapSum(setup, 2)];

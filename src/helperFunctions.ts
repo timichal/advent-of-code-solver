@@ -1,3 +1,3 @@
-export const sum = (values: number[]) => values.reduce((total, currentValue) => total + currentValue, 0);
+export const sum = (values: number[], initialValue = 0) => values.reduce((total, currentValue) => total + currentValue, initialValue);
 
 export default sum;

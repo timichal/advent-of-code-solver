@@ -1,7 +1,28 @@
-export const fifteenTwentyTwo = (input) => {
-  const [bossMaxHp, bossDamage] = input.map((line) => line.split(": ")[1]);
+type Spell = {
+  name: string,
+  cost: number,
+  cooldown: number,
+};
 
-  const spells = [
+type GameState = {
+  manacost: number,
+  playerHp: number,
+  playerMana: number,
+  bossHp: number,
+  bossDamage: number,
+  playerTurn: boolean,
+  effects: {
+    shield: number,
+    poison: number,
+    recharge: number,
+  },
+  minMana: number,
+};
+
+export const fifteenTwentyTwo = (input: string[]): [number, number] => {
+  const [bossMaxHp, bossDamage] = input.map((line) => Number(line.split(": ")[1]));
+
+  const spells: Spell[] = [
     { name: "missile", cost: 53, cooldown: 0 },
     { name: "drain", cost: 73, cooldown: 0 },
     { name: "shield", cost: 113, cooldown: 6 },
@@ -9,7 +30,7 @@ export const fifteenTwentyTwo = (input) => {
     { name: "recharge", cost: 229, cooldown: 5 },
   ];
 
-  const gameState = {
+  const gameState: GameState = {
     manacost: 0,
     playerHp: 50,
     playerMana: 500,
@@ -24,7 +45,7 @@ export const fifteenTwentyTwo = (input) => {
     minMana: Infinity,
   };
 
-  const simulation = (spell, { effects, ...inputState }, part2) => {
+  const simulation = (spell: Spell | undefined, { effects, ...inputState }: GameState, part2?: boolean) => {
     const state = { effects: { ...effects }, ...inputState };
     if (spell) {
       // PLAYER TURN

@@ -1,8 +1,8 @@
-export const fifteenTwenty = (input) => {
-  const instructions = input[0];
+export const fifteenTwenty = (input: string[]): [number, number] => {
+  const instructions = Number(input[0]);
 
   // blazing fast factor algorithm lifted from https://stackoverflow.com/questions/22130043/trying-to-find-factors-of-a-number-in-js
-  const getFactors = (num) => {
+  const getFactors = (num: number) => {
     const isEven = num % 2 === 0;
     const inc = isEven ? 1 : 2;
     const factors = [1, num];
@@ -19,7 +19,7 @@ export const fifteenTwenty = (input) => {
     return factors;
   };
 
-  const getHouseNumber = (minPresents, limited) => {
+  const getHouseNumber = (minPresents: number, limited?: boolean) => {
     for (let x = 1; ; x++) {
       const sum = !limited
         ? getFactors(x).reduce((acc, val) => acc + val * 10, 0)

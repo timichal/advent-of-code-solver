@@ -1,17 +1,17 @@
-export const fifteenSixteen = (input) => {
+export const fifteenSixteen = (input: string[]): [number, number] => {
   const instructions = input.map((el) => {
     const splitEl = el.split(/[ ,:]/);
     return {
-      id: splitEl[1],
+      id: Number(splitEl[1]),
       [splitEl[3]]: Number(splitEl[5]),
       [splitEl[7]]: Number(splitEl[9]),
       [splitEl[11]]: Number(splitEl[13]),
     };
   });
 
-  const eq = (property, amount) => property === undefined || property === amount;
-  const more = (property, amount) => property === undefined || property > amount;
-  const less = (property, amount) => property === undefined || property < amount;
+  const eq = (property: number, amount: number) => property === undefined || property === amount;
+  const more = (property: number, amount: number) => property === undefined || property > amount;
+  const less = (property: number, amount: number) => property === undefined || property < amount;
 
   const part1 = instructions.find((aunt) => (
     eq(aunt.children, 3)
@@ -24,7 +24,7 @@ export const fifteenSixteen = (input) => {
     && eq(aunt.trees, 3)
     && eq(aunt.cars, 2)
     && eq(aunt.perfumes, 1)
-  )).id;
+  ))?.id;
 
   const part2 = instructions.find((aunt) => (
     eq(aunt.children, 3)
@@ -37,9 +37,9 @@ export const fifteenSixteen = (input) => {
     && more(aunt.trees, 3)
     && eq(aunt.cars, 2)
     && eq(aunt.perfumes, 1)
-  )).id;
+  ))?.id;
 
-  return [part1, part2];
+  return [Number(part1), Number(part2)];
 };
 
 export default fifteenSixteen;

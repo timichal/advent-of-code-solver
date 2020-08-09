@@ -10,7 +10,10 @@ const puzzleInfoChange = (clear = true) => {
   const year = $("input[name='year']:checked").value;
   const day = $("input[name='day']:checked").value;
   $$("input[name='day']").forEach((input) => {
-    if (!solutions[Number(year)][Number(input.value)]) input.disabled = true;
+    if (!solutions[Number(year)][Number(input.value)]) {
+      input.disabled = true;
+      if (input.parentElement) input.parentElement.style.color = "grey";
+    }
   });
   const puzzleLink = `https://adventofcode.com/${year}/day/${Number(day)}`;
   const solutionLink = `https://github.com/timichal/advent-of-code-solver/blob/master/src/${year}/day_${day}.ts`;

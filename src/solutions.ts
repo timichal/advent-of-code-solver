@@ -13,7 +13,6 @@ import { fifteenTwelve } from "./2015/day_12";
 import { fifteenThirteen } from "./2015/day_13";
 import { fifteenFourteen } from "./2015/day_14";
 import { fifteenFifteen } from "./2015/day_15";
-/*
 import { fifteenSixteen } from "./2015/day_16";
 import { fifteenSeventeen } from "./2015/day_17";
 import { fifteenEighteen } from "./2015/day_18";
@@ -22,6 +21,7 @@ import { fifteenTwenty } from "./2015/day_20";
 import { fifteenTwentyOne } from "./2015/day_21";
 import { fifteenTwentyTwo } from "./2015/day_22";
 import { fifteenTwentyThree } from "./2015/day_23";
+/*
 import { fifteenTwentyFour } from "./2015/day_24";
 import { fifteenTwentyFive } from "./2015/day_25";
 import { sixteenOne } from "./2016/day_01";
@@ -52,7 +52,6 @@ export const solutions: {
     13: fifteenThirteen,
     14: fifteenFourteen,
     15: fifteenFifteen,
-    /*
     16: fifteenSixteen,
     17: fifteenSeventeen,
     18: fifteenEighteen,
@@ -61,6 +60,7 @@ export const solutions: {
     21: fifteenTwentyOne,
     22: fifteenTwentyTwo,
     23: fifteenTwentyThree,
+    /*
     24: fifteenTwentyFour,
     25: fifteenTwentyFive,
     */

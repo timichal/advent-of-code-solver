@@ -1,8 +1,8 @@
-export const fifteenTwentyThree = (input) => {
+export const fifteenTwentyThree = (input: string[]): [number, number] => {
   const instructions = input.map((line) => line.split(/,? /g));
 
-  const computer = (aValue) => {
-    const register = { a: aValue, b: 0 };
+  const computer = (aValue: number) => {
+    const register: { [key: string]: number } = { a: aValue, b: 0 };
     let position = 0;
     for (;;) {
       const instruction = instructions[position];
