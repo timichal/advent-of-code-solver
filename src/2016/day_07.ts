@@ -1,4 +1,4 @@
-export const sixteenSeven = (input) => {
+export const sixteenSeven = (input: string[]): [number, number] => {
   const part1 = input
     .filter((line) => !line.match(/\[[a-z]*?([a-z])([a-z])\2\1[a-z]*?\]/g))
     .filter((line) => line.match(/([a-z])([a-z])\2\1/g))
@@ -16,7 +16,7 @@ export const sixteenSeven = (input) => {
 
   // part 2: we pick every xyx combination
   console.log(part1, part2)
-  return [part1, part2];
+  return [part1, 0];
 };
 
 /*

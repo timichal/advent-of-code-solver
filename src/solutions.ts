@@ -24,12 +24,12 @@ import { fifteenTwentyThree } from "./2015/day_23";
 import { fifteenTwentyFour } from "./2015/day_24";
 import { fifteenTwentyFive } from "./2015/day_25";
 import { sixteenOne } from "./2016/day_01";
-/*
 import { sixteenTwo } from "./2016/day_02";
 import { sixteenThree } from "./2016/day_03";
 import { sixteenFour } from "./2016/day_04";
 import { sixteenFive } from "./2016/day_05";
 import { sixteenSix } from "./2016/day_06";
+/*
 import { sixteenSeven } from "./2016/day_07";
 */
 
@@ -65,12 +65,12 @@ export const solutions: {
   },
   2016: {
     1: sixteenOne,
-    /*
     2: sixteenTwo,
     3: sixteenThree,
     4: sixteenFour,
     5: sixteenFive,
     6: sixteenSix,
+    /*
     7: sixteenSeven,
     */
   },
