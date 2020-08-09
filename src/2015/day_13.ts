@@ -1,7 +1,9 @@
-import { permutation } from "js-combinatorics";
+import { Permutation } from "js-combinatorics";
 
-export const fifteenThirteen = (input) => {
-  const instructions = input.map((el) => {
+type Instruction = [string, string, number][];
+
+export const fifteenThirteen = (input: string[]): [number, number] => {
+  const instructions: Instruction = input.map((el) => {
     const splitEl = el.split(" ");
     return [
       splitEl[0][0],
@@ -10,10 +12,10 @@ export const fifteenThirteen = (input) => {
     ];
   });
 
-  const computeHappiness = (guestList) => {
+  const computeHappiness = (guestList: Instruction) => {
     const guests = [...new Set(guestList.map((el) => el[0]))];
-    const guestPermutations = permutation(guests);
-    const maxHappiness = Math.max(...guestPermutations.map((combination) => (
+    const guestPermutations = [...new Permutation(guests)];
+    const maxHappiness = Math.max(...guestPermutations.map((combination: string[]) => (
       combination
         .map((guest, index) => (
           // guests sit around a table - for ABCD, need to sum a+b b+c c+d d+a
@@ -22,7 +24,7 @@ export const fifteenThirteen = (input) => {
             .filter((el) => (
               (el[0] === guest && el[1] === combination[(index + 1) % combination.length]))
               || (el[1] === guest && el[0] === combination[(index + 1) % combination.length]))
-            .reduce((sum, el) => sum + el[2], 0)
+            .reduce((sum, el) => sum + Number(el[2]), 0)
         ))
         .reduce((sum, val) => sum + val, 0)
     )));
@@ -30,11 +32,11 @@ export const fifteenThirteen = (input) => {
     return maxHappiness;
   };
 
-  const addYourselfTo = (guestList) => {
+  const addYourselfTo = (guestList: Instruction) => {
     const guests = [...new Set(guestList.map((el) => el[0]))];
     return [
       ...guestList,
-      guests.map((guest) => [[guest, "X", 0], ["X", guest, 0]]).flat(),
+      ...guests.flatMap((guest): Instruction => [[guest, "X", 0], ["X", guest, 0]]),
     ];
   };
 

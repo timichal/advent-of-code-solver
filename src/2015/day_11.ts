@@ -1,7 +1,7 @@
-export const fifteenEleven = (input) => {
+export const fifteenEleven = (input: string[]): [string, string] => {
   const originalPassword = input[0];
 
-  const nextChar = (str) => {
+  const nextChar = (str: string) => {
     let depth = 1;
     while (str[str.length - depth] === "z") depth += 1;
 
@@ -10,9 +10,10 @@ export const fifteenEleven = (input) => {
       + "a".repeat(depth - 1);
   };
 
-  const passwordRequirements = (string) => {
+  const passwordRequirements = (string: string) => {
     // All of:
-    // Passwords must include one increasing straight of at least three letters, like abc, bcd, cde, and so on, up to xyz. They cannot skip letters; abd doesn't count.
+    // Passwords must include one increasing straight of at least three letters, like abc, bcd, cde, and so on, up to xyz.
+    //  They cannot skip letters; abd doesn't count.
     const containsIncreasing = () => {
       for (let charCode = 97; charCode <= 120; charCode += 1) {
         if (string.includes(
@@ -33,7 +34,7 @@ export const fifteenEleven = (input) => {
     return containsIncreasing() && containsNoForbiddenLetters && containsTwoDifferentPairs;
   };
 
-  function getNextPassword(password) {
+  function getNextPassword(password: string) {
     password = nextChar(password);
     while (!passwordRequirements(password)) password = nextChar(password);
     return password;

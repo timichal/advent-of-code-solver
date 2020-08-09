@@ -1,4 +1,3 @@
-// @ts-ignore: explanation here
 import { Permutation } from "js-combinatorics";
 
 export const fifteenNine = (input: string[]): [number, number] => {

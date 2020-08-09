@@ -1,7 +1,7 @@
-export const fifteenTen = (input) => {
+export const fifteenTen = (input: string[]): [number, number] => {
   const instructions = input[0];
 
-  const lookAndSay = (string, cycles) => {
+  const lookAndSay = (string: string, cycles: number) => {
     let cycledString = string;
     for (let i = 0; i < cycles; i++) {
       let newString = "";
