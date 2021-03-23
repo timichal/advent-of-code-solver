@@ -1,7 +1,7 @@
 import { combination } from "js-combinatorics";
 import { sum } from "../helperFunctions";
 
-export const fifteenTwentyFour = (input: string[]): [number, number] => {
+const fifteenTwentyFour = (input: string[]): [number, number] => {
   const instructions = input.map(Number);
 
   const findLeastValidPackages = (packages: number[], groups: number) => {

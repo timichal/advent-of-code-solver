@@ -1,4 +1,4 @@
-export const fifteenTwelve = (input: string[]): [number, number] => {
+const fifteenTwelve = (input: string[]): [number, number] => {
   const countArr = (arr: any): number => {
     // if an actual object and contains "red", discount it (count as 0)
     if (!Array.isArray(arr) && Object.values(arr).includes("red")) return 0;

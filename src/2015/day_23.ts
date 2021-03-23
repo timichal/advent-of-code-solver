@@ -1,4 +1,4 @@
-export const fifteenTwentyThree = (input: string[]): [number, number] => {
+const fifteenTwentyThree = (input: string[]): [number, number] => {
   const instructions = input.map((line) => line.split(/,? /g));
 
   const computer = (aValue: number) => {

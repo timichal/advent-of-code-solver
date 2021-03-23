@@ -1,6 +1,6 @@
 import { sum } from "../helperFunctions";
 
-export const fifteenTwo = (input: string[]): [number, number] => {
+const fifteenTwo = (input: string[]): [number, number] => {
   const boxDimensions = input.map((box) => box.split("x").map(Number));
 
   const computeWrappingPaper = ([l, w, h]: number[]) => (

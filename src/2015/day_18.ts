@@ -1,4 +1,4 @@
-export const fifteenEighteen = (input: string[]): [number, number] => {
+const fifteenEighteen = (input: string[]): [number, number] => {
   const instructions = input.map((line) => [...line]);
 
   /*

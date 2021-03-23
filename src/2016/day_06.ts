@@ -1,4 +1,4 @@
-export const sixteenSix = (input: string[]): [string, string] => {
+const sixteenSix = (input: string[]): [string, string] => {
   const charCount = (message: string[]) => {
     const counter: { [letter: string]: number } = {};
     message.forEach((letter: string) => { counter[letter] = (counter[letter] || 0) + 1; });

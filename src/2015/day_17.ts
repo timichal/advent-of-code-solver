@@ -1,7 +1,7 @@
 import { power } from "js-combinatorics";
 import { sum } from "../helperFunctions";
 
-export const fifteenSeventeen = (input: string[]): [number, number] => {
+const fifteenSeventeen = (input: string[]): [number, number] => {
   const instructions = input.map(Number);
 
   let part1 = 0;

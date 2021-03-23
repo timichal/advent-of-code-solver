@@ -1,4 +1,4 @@
-export const fifteenSixteen = (input: string[]): [number, number] => {
+const fifteenSixteen = (input: string[]): [number, number] => {
   const instructions = input.map((instruction) => {
     const splitInstruction = instruction.split(/[ ,:]/);
     return {

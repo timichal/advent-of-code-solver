@@ -1,6 +1,6 @@
 type Counter = {[letter: string]: number};
 
-export const sixteenFour = (input: string[]): [number, number] => {
+const sixteenFour = (input: string[]): [number, number] => {
   const instructions: [string, number, string][] = input.map((line) => [
     line.match(/.*(?=-)/)?.[0].replace(/-/g, "") ?? "",
     Number(line.match(/\d+/)?.[0]) ?? 0,

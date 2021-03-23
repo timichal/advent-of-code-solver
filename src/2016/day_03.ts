@@ -1,4 +1,4 @@
-export const sixteenThree = (input: string[]): [number, number] => {
+const sixteenThree = (input: string[]): [number, number] => {
   const instructions = input.map((instruction) => instruction.match(/\d+/g)?.map(Number) ?? [0, 0, 0]);
   const isTriangle = ([a, b, c]: number[]) => a + b > c && a + c > b && b + c > a;
 

@@ -1,4 +1,4 @@
-export const fifteenNineteen = (input: string[]): [number, number] => {
+const fifteenNineteen = (input: string[]): [number, number] => {
   const instructions = input
     .map((line) => line.split(" => "))
     .filter((line) => line.length === 2)

@@ -6,10 +6,6 @@ module.exports = {
     filename: "index.js",
   },
 
-  node: {
-    fs: "empty",
-  },
-
   module: {
     rules: [
       {

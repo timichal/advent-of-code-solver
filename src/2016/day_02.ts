@@ -1,7 +1,7 @@
 /* eslint-disable object-property-newline */
 type Coord = [number, number];
 
-export const sixteenTwo = (input: string[]): [string, string] => {
+const sixteenTwo = (input: string[]): [string, string] => {
   // part 1
   const boundsLimit = (number: number) => Math.min(2, Math.max(0, number));
   const gridMover = (currentPos: Coord, move: Coord) => [

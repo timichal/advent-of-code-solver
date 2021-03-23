@@ -1,4 +1,4 @@
-export const fifteenTen = (input: string[]): [number, number] => {
+const fifteenTen = (input: string[]): [number, number] => {
   const instructions = input[0];
 
   const lookAndSay = (string: string, cycles: number) => {

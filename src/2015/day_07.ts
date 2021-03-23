@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-eval */
-export const fifteenSeven = (input: string[]): [number, number] => {
+const fifteenSeven = (input: string[]): [number, number] => {
   const instructions = input
     .map((instruction) => instruction
       .replace("AND", "&")

@@ -1,4 +1,4 @@
-export const fifteenTwenty = (input: string[]): [number, number] => {
+const fifteenTwenty = (input: string[]): [number, number] => {
   const instructions = Number(input[0]);
 
   // blazing fast factor algorithm lifted from https://stackoverflow.com/questions/22130043/trying-to-find-factors-of-a-number-in-js

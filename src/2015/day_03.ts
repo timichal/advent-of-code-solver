@@ -1,4 +1,4 @@
-export const fifteenThree = (input: string[]): [number, number] => {
+const fifteenThree = (input: string[]): [number, number] => {
   const instructions = [...input[0]];
 
   // a reducer that creates a new array each pass would be almost a thousand times slower!

@@ -1,4 +1,4 @@
-export const fifteenEleven = (input: string[]): [string, string] => {
+const fifteenEleven = (input: string[]): [string, string] => {
   const originalPassword = input[0];
 
   const nextChar = (str: string) => {

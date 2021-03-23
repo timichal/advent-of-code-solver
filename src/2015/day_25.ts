@@ -1,6 +1,6 @@
 import { sum } from "../helperFunctions";
 
-export const fifteenTwentyFive = (input: string[]): [number, string] => {
+const fifteenTwentyFive = (input: string[]): [number, string] => {
   const instructions = input[0].match(/\d+/g)?.map(Number) || [0, 0];
 
   const sumRange = (start: number, length: number) => sum(Array.from(Array(length), (_, index) => index + start));

@@ -1,6 +1,6 @@
 import { md5 } from "../md5";
 
-export const fifteenFour = (input: string[]): [number, number] => {
+const fifteenFour = (input: string[]): [number, number] => {
   const instructions = input[0];
   const getSuffix = (hash: string, prefix: string) => {
     let suffix = 1;

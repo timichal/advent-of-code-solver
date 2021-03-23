@@ -1,4 +1,4 @@
-export const fifteenFifteen = (input: string[]): [number, number] => {
+const fifteenFifteen = (input: string[]): [number, number] => {
   const instructions = input.map((el) => el.match(/-?\d/g)?.map(Number) ?? [0, 0, 0, 0, 0]);
 
   const getCombos = (sum: number, len: number): number[][] => {

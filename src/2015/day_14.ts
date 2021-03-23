@@ -9,7 +9,7 @@ type Deer = {
   points: number,
 };
 
-export const fifteenFourteen = (input: string[]): [number, number] => {
+const fifteenFourteen = (input: string[]): [number, number] => {
   const instructions: Deer[] = input.map((instruction) => {
     const splitInstruction = instruction.split(" ");
     return {

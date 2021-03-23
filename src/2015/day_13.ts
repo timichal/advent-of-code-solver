@@ -3,7 +3,7 @@ import { sum } from "../helperFunctions";
 
 type Instruction = [string, string, number][];
 
-export const fifteenThirteen = (input: string[]): [number, number] => {
+const fifteenThirteen = (input: string[]): [number, number] => {
   const instructions: Instruction = input.map((instruction) => {
     const splitInstruction = instruction.split(" ");
     return [

@@ -1,4 +1,4 @@
-export const sixteenOne = (input: string[]): [number, number] => {
+const sixteenOne = (input: string[]): [number, number] => {
   const instructions = input[0]
     .split(", ")
     .join("")

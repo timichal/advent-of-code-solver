@@ -1,7 +1,7 @@
 import { combination } from "js-combinatorics";
 import { sum } from "../helperFunctions";
 
-export const fifteenTwentyOne = (input: string[]): [number, number] => {
+const fifteenTwentyOne = (input: string[]): [number, number] => {
   const [bossMaxHp, bossDamage, bossArmor] = input.map((line) => Number(line.split(": ")[1]));
 
   const store = {

@@ -1,4 +1,4 @@
-export const fifteenOne = (input: string[]): [number, number] => {
+const fifteenOne = (input: string[]): [number, number] => {
   const instructions = [...input[0]];
 
   let firstBasementStep = 0;

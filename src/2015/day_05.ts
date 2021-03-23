@@ -1,4 +1,4 @@
-export const fifteenFive = (input: string[]): [number, number] => {
+const fifteenFive = (input: string[]): [number, number] => {
   const isStringNicePartOne = (string: string) => {
     // All of:
     // It contains at least three vowels (aeiou only), like aei, xazegov, or aeiouaeiouaeiou.

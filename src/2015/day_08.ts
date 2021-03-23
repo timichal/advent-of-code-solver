@@ -1,4 +1,4 @@
-export const fifteenEight = (input: string[]): [number, number] => {
+const fifteenEight = (input: string[]): [number, number] => {
   const [dataChars, contentChars, escapedChars] = input
     .reduce(([dataCounter, contentCounter, escapedCounter], instruction) => [
       dataCounter + instruction.length,

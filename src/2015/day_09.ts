@@ -1,6 +1,6 @@
 import { permutation } from "js-combinatorics";
 
-export const fifteenNine = (input: string[]): [number, number] => {
+const fifteenNine = (input: string[]): [number, number] => {
   const instructions = input.map((line) => line.split(" "));
   const distances: [string, string, number][] = instructions
     .map((instruction) => [instruction[0], instruction[2], Number(instruction[4])]);

@@ -19,7 +19,7 @@ type GameState = {
   minMana: number,
 };
 
-export const fifteenTwentyTwo = (input: string[]): [number, number] => {
+const fifteenTwentyTwo = (input: string[]): [number, number] => {
   const [bossMaxHp, bossDamage] = input.map((line) => Number(line.split(": ")[1]));
 
   const spells: Spell[] = [
