@@ -1,13 +1,15 @@
 const fifteenOne = (input: string[]): [number, number] => {
   const instructions = [...input[0]];
-
+  let currentFloor = 0;
   let firstBasementStep = 0;
-  const finalFloor = instructions.reduce((currentFloor, instruction, step) => {
-    if (!firstBasementStep && currentFloor === -1) firstBasementStep = step;
-    return currentFloor + (instruction === "(" ? 1 : -1);
-  }, 0);
+  instructions.forEach((instruction, stepIndex) => {
+    if (!firstBasementStep && currentFloor === -1) firstBasementStep = stepIndex;
 
-  return [finalFloor, firstBasementStep];
+    if (instruction === "(") currentFloor += 1;
+    else currentFloor -= 1;
+  });
+
+  return [currentFloor, firstBasementStep];
 };
 
 export default fifteenOne;

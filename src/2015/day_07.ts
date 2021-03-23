@@ -1,15 +1,16 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-eval */
 const fifteenSeven = (input: string[]): [number, number] => {
-  const instructions = input
+  const instructionsArray = input
     .map((instruction) => instruction
       .replace("AND", "&")
       .replace("OR", "|")
       .replace("NOT", "65535 -")
       .replace("LSHIFT", "<<")
       .replace("RSHIFT", ">>")
-      .split(" -> "))
-    .reduce((object, entry) => Object.assign(object, { [entry[1]]: entry[0] }), {});
+      .split(" -> ")
+      .reverse());
+  const instructions = Object.fromEntries(instructionsArray);
 
   const getInstructionValue = (register: { [key: string]: string }, wantedInstruction: string) => {
     while (!register[wantedInstruction].match(/^\d+$/)) {
