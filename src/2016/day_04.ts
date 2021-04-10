@@ -1,4 +1,4 @@
-type Counter = {[letter: string]: number};
+type Counter = { [letter: string]: number };
 
 const sixteenFour = (input: string[]): [number, number] => {
   const instructions: [string, number, string][] = input.map((line) => [

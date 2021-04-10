@@ -35,6 +35,9 @@ export const titles: { [year: number]: { [day: number]: string } } = {
     6: "Signals and Noise",
     7: "Internet Protocol Version 7",
   },
+  2017: {
+    1: "No Time for a Taxicab",
+  },
 };
 
 export default titles;

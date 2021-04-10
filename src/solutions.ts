@@ -29,9 +29,7 @@ import sixteenThree from "./2016/day_03";
 import sixteenFour from "./2016/day_04";
 import sixteenFive from "./2016/day_05";
 import sixteenSix from "./2016/day_06";
-/*
-import sixteenSeven from "./2016/day_07";
-*/
+import seventeenOne from "./2017/day_01";
 
 export const solutions: {
   [year: number]: { [day: number]: (input: string[]) => [number | string, number | string] }
@@ -74,6 +72,20 @@ export const solutions: {
     7: sixteenSeven,
     */
   },
+  2017: {
+    1: seventeenOne,
+  },
+  /*
+  2018: {
+    1: eighteenOne,
+  },
+  2019: {
+    1: nineteenOne,
+  },
+  2020: {
+    1: twentyOne,
+  },
+  */
 };
 
 export default solutions;
