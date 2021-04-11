@@ -41,6 +41,12 @@ export const titles: { [year: number]: { [day: number]: string } } = {
   2018: {
     1: "Chronal Calibration",
   },
+  2019: {
+    1: "The Tyranny of the Rocket Equation",
+  },
+  2020: {
+    1: "Report Repair",
+  },
 };
 
 export default titles;
