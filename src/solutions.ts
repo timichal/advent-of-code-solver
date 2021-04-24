@@ -30,6 +30,7 @@ import sixteenFour from "./2016/day_04";
 import sixteenFive from "./2016/day_05";
 import sixteenSix from "./2016/day_06";
 import seventeenOne from "./2017/day_01";
+import seventeenTwo from "./2017/day_02";
 import eighteenOne from "./2018/day_01";
 import nineteenOne from "./2019/day_01";
 import twentyOne from "./2020/day_01";
@@ -77,6 +78,7 @@ export const solutions: {
   },
   2017: {
     1: seventeenOne,
+    2: seventeenTwo,
   },
   2018: {
     1: eighteenOne,

@@ -37,6 +37,7 @@ export const titles: { [year: number]: { [day: number]: string } } = {
   },
   2017: {
     1: "No Time for a Taxicab",
+    2: "Corruption Checksum",
   },
   2018: {
     1: "Chronal Calibration",
